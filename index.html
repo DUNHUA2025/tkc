@@ -12,9 +12,9 @@
                     colors: {
                         primary: '#2E7D32', // 深绿色作为主色调
                         secondary: '#4CAF50', // 中绿色作为辅助色
-                        accent: '#81C784', // 浅绿色作为强调色
+                        accent: '#81C784', // 浅绿色绿色作为强调色
                         dark: '#1B5E20', // 暗绿色
-                        light: '#E8F5E9', // 浅绿色背景
+                        light: '#E8F5E9', // 浅绿色绿色背景
                     },
                     fontFamily: {
                         sans: ['Noto Sans TC', 'Noto Sans SC', 'Noto Sans', 'sans-serif'],
@@ -29,13 +29,64 @@
                 content-visibility: auto;
             }
             .text-shadow {
-                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0,0,0,0.7);
             }
             .transition-custom {
                 transition: all 0.3s ease-in-out;
             }
             .bg-gradient-green {
                 background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            }
+            .bg-eastern-river {
+                background-image: url('https://picsum.photos/id/137/1920/1080');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                position: relative;
+            }
+            .bg-eastern-river::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(46, 125, 50, 0.6);
+            }
+            .img-container {
+                overflow: hidden;
+                border-radius: 0.5rem;
+            }
+            .img-container img {
+                transition: transform 0.5s ease;
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+            .img-container:hover img {
+                transform: scale(1.05);
+            }
+            .fade-in {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            }
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            /* 新增图片容器样式，保持原始比例 */
+            .cert-img-container {
+                aspect-ratio: 4/3; /* 标准证件比例 */
+            }
+            .product-img-container {
+                aspect-ratio: 3/4; /* 产品图片比例 */
+            }
+            .brand-img-container {
+                aspect-ratio: 4/3; /* 品牌图片比例 */
             }
         }
     </style>
@@ -50,7 +101,7 @@
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <!-- Logo -->
             <a href="#home" class="flex items-center">
-                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/af719d68a2384c9499a0cfa90b8b11ab~tplv-a9rns2rl98-image.image?rcl=20250804183608D62076430B48B9B4C8C7&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754908568&amp;x-signature=EbQGGk2PLhSiuKhs3Nums8euprI%3D" alt="東江泉LOGO" class="h-12 md:h-16">
+                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/82a79c11c8674a3bbf6d5324d2b4e993~tplv-a9rns2rl98-image.image?rcl=202508050034536A4372B661DCA1560275&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930093&amp;x-signature=50KdhSCFdF3DGVHf3wAEs3y%2BzzA%3D" alt="東江泉LOGO" class="h-12 md:h-16">
             </a>
             
             <!-- 桌面导航菜单 -->
@@ -90,24 +141,24 @@
     </header>
 
     <main>
-        <!-- 英雄区域 -->
-        <section id="home" class="pt-24 md:pt-32 pb-16 md:pb-24 bg-gradient-green text-white">
-            <div class="container mx-auto px-4">
+        <!-- 英雄区域 - 已更换为东江源头自然保护区图片 -->
+        <section id="home" class="pt-24 md:pt-32 pb-16 md:pb-24 bg-eastern-river text-white relative">
+            <div class="container mx-auto px-4 relative z-10">
                 <div class="max-w-4xl mx-auto text-center">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-shadow" data-lang-key="mainTitle">東江泉</h1>
-                    <p class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4" data-lang-key="slogan1">致力打造全球首款</p>
-                    <p class="text-xl md:text-2xl mb-8 opacity-90" data-lang-key="slogan2">WEB3 生態應用"RWA"資產飲用天然泉水</p>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-shadow-lg" data-lang-key="mainTitle">東江泉</h1>
+                    <p class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-shadow" data-lang-key="slogan1">致力打造全球首款</p>
+                    <p class="text-xl md:text-2xl mb-8 opacity-90 text-shadow" data-lang-key="slogan2">WEB3 生態應用"RWA"資產飲用天然泉水</p>
                     <a href="#about" class="inline-block bg-white text-primary font-semibold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-custom" data-lang-key="learnMore">了解更多</a>
                 </div>
                 
                 <div class="mt-12 text-center">
-                    <p class="text-lg md:text-xl italic" data-lang-key="celebration">紀 . 念 . 東 . 江 . 水 . 供 . 港 . 60 . 週 . 年</p>
+                    <p class="text-lg md:text-xl italic text-shadow" data-lang-key="celebration">紀 . 念 . 東 . 江 . 水 . 供 . 港 . 60 . 週 . 年</p>
                 </div>
             </div>
         </section>
 
         <!-- 简介部分 -->
-        <section class="py-16 bg-white">
+        <section id="about" class="py-16 bg-white fade-in">
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto text-center mb-12">
                     <p class="text-xl md:text-2xl font-semibold mb-4 text-primary" data-lang-key="精心打造">2025精心打造</p>
@@ -117,14 +168,14 @@
                 <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
                     <!-- 竖版A4动态图片 -->
                     <div class="w-full md:w-1/3">
-                        <div class="aspect-[3/4] bg-light rounded-lg overflow-hidden shadow-lg">
-                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/01b8aa9f9e5d4939be90331a8001a2c7~tplv-a9rns2rl98-image.image?rcl=202508041909270A26E8E373D1050C5CC6&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754910567&amp;x-signature=tXZtaPcMJ66ZFAV0cQ0cRidfv8g%3D" alt="東江泉豎版展示圖" class="w-full h-full object-cover hover:scale-105 transition-custom duration-700">
+                        <div class="aspect-[3/4] bg-light rounded-lg overflow-hidden shadow-lg img-container">
+                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/73561fc7dad04348a3903b4fe2627fa6~tplv-a9rns2rl98-image.image?rcl=20250805003531DCDBBBC05A19C1405356&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930132&amp;x-signature=KcL0aHCe%2FbIjrNj7EgLBTQ8afy8%3D" alt="東江泉豎版展示圖" class="w-full h-full">
                         </div>
                     </div>
                     
                     <div class="w-full md:w-2/3">
-                        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary" data-lang-key="dunhuaGroup">敦華集團</h2>
-                        <p class="text-lg mb-6 leading-relaxed" data-lang-key="launchProduct">推出「東江泉」飲用天然泉水</p>
+                        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary" data-lang-key="dunhuaGroup">敦華集團出品</h2>
+                        <p class="text-lg mb-6 leading-relaxed" data-lang-key="launchProduct">東江泉·飲用天然泉水，該產品源自贛南東江源頭和贛江源頭的自然保護區交匯處，從深層花崗岩裂隙中抽取，含鍶、偏矽酸的天然泉水，甘甜可口、綿柔順滑。已經獲得香港優質“正”印檢測認證，是飲用解渴的佳品之選，是泡茶、 煲湯和煮飯的黃金搭檔。</p>
                         
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                             <div class="bg-light p-5 rounded-lg text-center transform hover:-translate-y-2 transition-custom">
@@ -149,37 +200,38 @@
         </section>
 
         <!-- 水源地生态 -->
-        <section class="py-16 bg-light">
+        <section class="py-16 bg-light fade-in">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-12 text-primary" data-lang-key="waterSourceEco">水源地週邊生態</h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-custom">
-                        <div class="aspect-video overflow-hidden">
-                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/42db6fdbc5a94c58bf32a44d968bed70~tplv-a9rns2rl98-image.image?rcl=20250804174415F4F0FFE40474C70829DD&amp;rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754905458&amp;x-signature=Zgm0ZZPGlin8rO8iS5c9kjYggq8%3D" alt="會昌丹霞雲海" class="w-full h-full object-cover hover:scale-105 transition-custom duration-500">
+                        <div class="img-container h-64">
+                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/33553ac780194917b99c20eb7f925385~tplv-a9rns2rl98-image.image?rcl=20250805161457B1F2FE1955059746377F&amp;rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754986501&amp;x-signature=hJS3Fmgo1M75V%2BpdvEEcd6%2FGyfQ%3D" alt="水源地週邊生態">
                         </div>
                         <div class="p-5">
-                            <h3 class="font-bold text-lg mb-2" data-lang-key="danxiaCloud">會昌丹霞雲海似仙境</h3>
+                            <h3 class="font-bold text-lg mb-2" data-lang-key="danxiaCloud">水源地週邊生態</h3>
+                            <p class="text-gray-600 text-sm">水源地周邊5公里範圍內設立了嚴格的生態保護區，禁止任何工業生產和農業活動。這裡棲息著多種珍稀動植物，形成了完整的生態系統。當地政府實施了嚴格的環境監測制度，確保水源不受任何污染。</p>
                         </div>
                     </div>
                     
                     <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-custom">
-                        <div class="aspect-video overflow-hidden">
-                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/833a25e28fa447ef9fddb6614fd82dc1~tplv-a9rns2rl98-image.image?rcl=2025080417443414D18AC2DD0E3C0A0835&amp;rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754905478&amp;x-signature=v6n34dcrl0e7o1RDdJMacSCx11c%3D" alt="石壁坑水庫" class="w-full h-full object-cover hover:scale-105 transition-custom duration-500">
+                        <div class="img-container h-64">
+                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/24f206ca8e0b41be877fd3836fecdfc1~tplv-a9rns2rl98-image.image?rcl=20250805161541832071738B08CE01E61E&amp;rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754986545&amp;x-signature=FzU7ZHtIMnfmzpeApOQv1g5jNzE%3D" alt="會昌丹霞雲海似仙境">
                         </div>
                         <div class="p-5">
-                            <h3 class="font-bold text-lg mb-2" data-lang-key="stoneLake">石壁坑水庫風光</h3>
-                            <p class="text-gray-600 text-sm" data-lang-key="stoneLakeDesc">石壁坑水庫波光粼粼，藍天白雲與澄淨湖水交相輝映，構成一幅綠色生態山水畫卷。</p>
+                            <h3 class="font-bold text-lg mb-2" data-lang-key="stoneLake">會昌丹霞雲海似仙境</h3>
+                            <p class="text-gray-600 text-sm">會昌丹霞地貌形成於約1.35億年前的白堊紀時期，是我國南方典型的丹霞地貌分布區之一。這裡的紅色岩層經過長期風化剝蝕和流水侵蝕，形成了獨特的峰叢、峽谷和石柱等地貌景觀。清晨時分，雲海環繞山巒，宛如人間仙境，也為水源提供了得天獨厚的淨化環境。</p>
                         </div>
                     </div>
                     
                     <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-custom">
-                        <div class="aspect-video overflow-hidden">
-                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/7ee006403bb84d9b8d7a586a2184d228~tplv-a9rns2rl98-image.image?rcl=202508041745040CEE61FDC8BB370A8BA6&amp;rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754905508&amp;x-signature=LrxLBr%2BrYcraAIFoX87Sj0ovk%2Bc%3D" alt="水源地周邊生態" class="w-full h-full object-cover hover:scale-105 transition-custom duration-500">
+                        <div class="img-container h-64">
+                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/97fcdf22f33d4b4fa628e626af5294c2~tplv-a9rns2rl98-image.image?rcl=202508051626536A6003EDC5D768488575&amp;rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754987217&amp;x-signature=dqRx8qfSxG0kiU4K%2F5NaDbI8RXg%3D" alt="石壁坑水庫風光">
                         </div>
                         <div class="p-5">
-                            <h3 class="font-bold text-lg mb-2" data-lang-key="surroundingEco">水源地周邊生態環境</h3>
-                            <p class="text-gray-600 text-sm" data-lang-key="surroundingEcoDesc">未受污染的自然環境，確保水源的純淨與天然。</p>
+                            <h3 class="font-bold text-lg mb-2" data-lang-key="surroundingEco">石壁坑水庫風光</h3>
+                            <p class="text-gray-600 text-sm">該水庫建成於1960年代，是東江流域重要的水利工程之一，不僅為下游地區提供飲用水源，還發揮著防洪、灌溉和水電發電等多種功能。水庫周邊植被茂密，水質長期保持在國家一類標準。</p>
                         </div>
                     </div>
                 </div>
@@ -187,106 +239,147 @@
         </section>
 
         <!-- 相关证明文件 -->
-        <section id="certifications" class="py-16 bg-white">
+        <section id="certifications" class="py-16 bg-white fade-in">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-12 text-primary" data-lang-key="relatedCert">相關證明文件</h2>
                 
+                <!-- 每行2张图片，保持原始比例 -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <!-- 10张证明文件图片 -->
-                    <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/8b41cbd590b747e484d83dc052d14b3d~tplv-a9rns2rl98-image.image?rcl=20250804174544064FC07F9F8EF10A9D06&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754905545&amp;x-signature=3ZYTDhybskM48Vi9jDQVhzw9ut4%3D" alt="證明文件1" class="w-full h-full object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/e23240864a084d42a6ddf9294f395e87~tplv-a9rns2rl98-image.image?rcl=20250805003559CD2805F464A310DC9077&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930159&amp;x-signature=LMLqWhdh5rdf3q61K2RkLlAPS%2BY%3D" alt="證明文件1">
                     </div>
-                    <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/60516832a634410695ac6f1a88cc349c~tplv-a9rns2rl98-image.image?rcl=202508041745599614424BCE5A8DC3928A&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754905559&amp;x-signature=3cQ8gj1fg1s2WaVaNsbLZiKsT2w%3D" alt="證明文件2" class="w-full h-full object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/5c3c6cf53277416184a80b0a286d650b~tplv-a9rns2rl98-image.image?rcl=20250805003610EC89844923C7EF37BF39&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930171&amp;x-signature=D%2BANWUTc40FMagMqvLuBKLYLjh4%3D" alt="證明文件2">
                     </div>
-                    <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/1d16ab97b52a498b879e6235058e9ffd~tplv-a9rns2rl98-image.image?rcl=202508041746098502C9847765C0BCE495&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754905570&amp;x-signature=Ol3oXxsT3JHbP0KYa50cXyZ8bfk%3D" alt="證明文件3" class="w-full h-full object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/271d90a9b72d49a190df63db7cc5acb2~tplv-a9rns2rl98-image.image?rcl=2025080500362262F46B8DD208DBD44EDD&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930182&amp;x-signature=mKZCKStzFDDct2T%2BjQ9c%2BPd95Dg%3D" alt="證明文件3">
                     </div>
-                    <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/8d79fc0054be43a5a85c73c047a1c124~tplv-a9rns2rl98-image.image?rcl=202508041746248A835C4370B9ADFDF89D&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754905584&amp;x-signature=dtWgVgOhLTxmPlZvhYnnUHXi0Jg%3D" alt="證明文件4" class="w-full h-full object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/e312b03f16e34253977347b623935fe3~tplv-a9rns2rl98-image.image?rcl=202508050036357DA1522BC3DB1251BF67&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930195&amp;x-signature=6lULkHLiaLTizc%2BdmkbRkA1kFsU%3D" alt="證明文件4">
                     </div>
-                    <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/08a35fbfcc2440efa006e4cdd8858c53~tplv-a9rns2rl98-image.image?rcl=202508041746362D0CA9451786A0A4CD75&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754905596&amp;x-signature=fsKGb348EHsDGmuBybr9mGn6K%2Fk%3D" alt="證明文件5" class="w-full h-full object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/953f59228ffa45849eb61156340e907b~tplv-a9rns2rl98-image.image?rcl=20250805003646E485F5DF6DBB440415B0&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930206&amp;x-signature=JcrBOysxk0JpHxJbiQEvogPP4yQ%3D" alt="證明文件5">
                     </div>
-                    <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/8bb7116dbd6a4292812ed1f015c992ff~tplv-a9rns2rl98-image.image?rcl=202508041746535AF3A7BFF2B7E7FAC16D&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754905613&amp;x-signature=C9RYW2eGWt2d4t3LoAMj0%2FJjyi4%3D" alt="證明文件6" class="w-full h-full object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/0b3027abb6f8493796022ccc785c47b9~tplv-a9rns2rl98-image.image?rcl=20250805003656F3D9266D105F32D0F52B&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930217&amp;x-signature=rjvmpcIVSEMM44yCF9%2FjGZ7u6%2F4%3D" alt="證明文件6">
                     </div>
-                    <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/99be672b9bc94540803261628cf9a187~tplv-a9rns2rl98-image.image?rcl=20250804174706D02A535B355447CABB96&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754905626&amp;x-signature=YWkmu7ZHjYdaAxm%2FuMKygV3mNDc%3D" alt="證明文件7" class="w-full h-full object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/1d5072189b22422cadb2632f6027964d~tplv-a9rns2rl98-image.image?rcl=20250805003707F591526FB7217C4307CB&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930227&amp;x-signature=rlxRXkhn5TQKGkAVdVYa5orh0Dc%3D" alt="證明文件7">
                     </div>
-                    <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/51899608cdf0470a943ee3ed5f6b91a7~tplv-a9rns2rl98-image.image?rcl=20250804174719EFDA93A9A47EE1032A47&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754905639&amp;x-signature=aWgnRCahbC%2BmGEdWMN1covbMs3A%3D" alt="證明文件8" class="w-full h-full object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/0f6a499d954a45918a17aef944231312~tplv-a9rns2rl98-image.image?rcl=20250805003717FBB8D8CAA987B0335C52&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930238&amp;x-signature=FRvgCcaBn5M%2FDSUXPsSfco9zVMg%3D" alt="證明文件8">
                     </div>
-                    <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/4245a0d391294772b507fe10953fb599~tplv-a9rns2rl98-image.image?rcl=20250804174731E375EBD36C11150C8379&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754905652&amp;x-signature=KzDvIh7oGt8FjVPkmeO3hfPqmZ8%3D" alt="證明文件9" class="w-full h-full object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/4da2464a78cb4184b12cd60b167d9437~tplv-a9rns2rl98-image.image?rcl=202508050037289785DA4DE3FFF743BB34&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930248&amp;x-signature=4UMsvjhogQMZVRLOMvQMgf6Tuek%3D" alt="證明文件9">
                     </div>
-                    <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/e2e8a5010c2d4e1286866618e844a192~tplv-a9rns2rl98-image.image?rcl=20250804174743CF357B20C084C2C152E4&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754905664&amp;x-signature=U%2FK%2Fn2cQCvPOXigc7LlN%2FDsSNhY%3D" alt="證明文件10" class="w-full h-full object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/5cea6619892d40c59ae4a7d90c73e4db~tplv-a9rns2rl98-image.image?rcl=202508050037375C1ACB03AEE19DE3E860&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930257&amp;x-signature=7k9igDSsrbCHrj5R1eTogPPWCdk%3D" alt="證明文件10">
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 相关资质文件 -->
-        <section class="py-16 bg-light">
+        <section class="py-16 bg-light fade-in">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-12 text-primary" data-lang-key="qualificationDocs">相關資質文件</h2>
                 
+                <!-- 每行2张图片，保持原始比例 -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <!-- 6张资质文件图片 -->
-                    <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/ea0915dac18441ce96de7b62a3be28e3~tplv-a9rns2rl98-image.image?rcl=20250804180418FB70F41D6DA5C8D4C1EC&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754906659&amp;x-signature=X%2FOuhOGf32AgOibuc00%2BS115W2M%3D" alt="資質文件1" class="w-full h-full object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/563e165f307c4e7b9ad468b49afbd31a~tplv-a9rns2rl98-image.image?rcl=20250805003806936EA586C5BC3BF0E2B5&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930288&amp;x-signature=W775b5hLCCjZvJlnKwa%2Bia688ik%3D" alt="資質文件1">
                     </div>
-                    <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/1b9c2a33224941c18858c32764249884~tplv-a9rns2rl98-image.image?rcl=20250804180436D54A7C2FDD69832DAC08&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754906677&amp;x-signature=FIezYGIt3Wok8yRAQrLmB%2FfNdKg%3D" alt="資質文件2" class="w-full h-full object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/46e41860789d44d59ed2cd8a0b2c1807~tplv-a9rns2rl98-image.image?rcl=20250805003823C9E57D22A9532BD859B4&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930304&amp;x-signature=5CidfkDmAnHsV5EJCSWH7ket4%2F8%3D" alt="資質文件2">
                     </div>
-                    <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/d167e7abbfc743b1bcfbbe3ed3f5131b~tplv-a9rns2rl98-image.image?rcl=2025080418050711A7627816FE25AF2EBB&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754906708&amp;x-signature=8%2FULilMEXQVTqUdywHha7IX1FeY%3D" alt="資質文件3" class="w-full h-full object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/b8d72adea10644349988322d3178826e~tplv-a9rns2rl98-image.image?rcl=20250805003837650DCE2863C40AD3E4E8&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930318&amp;x-signature=DWqoP%2Fokyjp%2Bbvr33hI5PSos29E%3D" alt="資質文件3">
                     </div>
-                    <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/1810e831224c4efd883cf90757510348~tplv-a9rns2rl98-image.image?rcl=202508041805289258096B727E08212430&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754906728&amp;x-signature=THSkkAe6gIhaIkfnEAajvNhckzA%3D" alt="資質文件4" class="w-full h-full object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/5d8f931f0c304592b542087c9bfc15c4~tplv-a9rns2rl98-image.image?rcl=20250805003851C883BE6EF41A01FF1DD2&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930332&amp;x-signature=c9UHVWv0n2VmGja1%2FDLd33weo%2B0%3D" alt="資質文件4">
                     </div>
-                    <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/bdecf1a975f34adf9d71026eae8090c0~tplv-a9rns2rl98-image.image?rcl=20250804180546F428D8B79CCB24B15735&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754906747&amp;x-signature=TlD9KalH9IjH%2Fz50%2FHnT5xSzN0c%3D" alt="資質文件5" class="w-full h-full object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/f5c059252175469f8d9de138e6887551~tplv-a9rns2rl98-image.image?rcl=202508050040088610908081D1C8E5FB3E&amp;rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754930411&amp;x-signature=hH7srBckZDv5I%2Fs0cX6Fr1q1DMY%3D" alt="資質文件5">
                     </div>
-                    <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/6cbe9b2a1e1e4e18b87727f7c2c91c2e~tplv-a9rns2rl98-image.image?rcl=20250804180601D459AA1355CAB20A9B06&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754906761&amp;x-signature=d5QS4UZ7InYnnkfwqqd62cUiH7E%3D" alt="資質文件6" class="w-full h-full object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/a07a1d43c0a346bda93f4f31d4039a46~tplv-a9rns2rl98-image.image?rcl=20250805004024C8D4A8107691CCD931FB&amp;rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754930428&amp;x-signature=AIsoHFQjQP6HnevcW%2FNH4t3U4jA%3D" alt="資質文件6">
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 产品展示 -->
-        <section id="products" class="py-16 bg-white">
+        <section id="products" class="py-16 bg-white fade-in">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-12 text-primary" data-lang-key="productShowcase">產品展示</h2>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 每行2张图片，保持原始比例 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <!-- 6张产品图片 -->
-                    <div class="bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/c3a527a5e8864ee8b6d0befe065e4be4~tplv-a9rns2rl98-image.image?rcl=2025080417505843248657AB705303908F&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754905859&amp;x-signature=ji0J6z39nGVJnj1JSctWwvY5J60%3D" alt="東江泉產品1" class="w-full aspect-square object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container product-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/cf7e88de6fae4769a9d1ae267022be51~tplv-a9rns2rl98-image.image?rcl=20250805004102FECE8E8FDC4941E57122&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930463&amp;x-signature=oPxekTzeaPaExY7RC%2BNwd5XHB%2BU%3D" alt="東江泉產品1">
                     </div>
-                    <div class="bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/c9f6ab44936e4638b8498769da9c519b~tplv-a9rns2rl98-image.image?rcl=20250804175131064EA2340E520FD1BF65&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754905892&amp;x-signature=pMsj6LdYC1PEcnz4BY%2BpfYxQ8bM%3D" alt="東江泉產品2" class="w-full aspect-square object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container product-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/b9d24b63723e4bf4a0177e3e1ac94ac6~tplv-a9rns2rl98-image.image?rcl=20250805175612821D7B799A9E240D20B5&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754992575&amp;x-signature=8uACOVNYDHOQvGx4cH7FIJt%2F7gI%3D" alt="東江泉產品2">
                     </div>
-                    <div class="bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/86a1d23d86dc40729d110002ec9f7a0d~tplv-a9rns2rl98-image.image?rcl=202508041752162F8F2096F01648C0A08C&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754905937&amp;x-signature=zy9uE1RYDFnGCQ2bJYvTH2hhsDk%3D" alt="東江泉產品3" class="w-full aspect-square object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container product-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/376bb3328298479c807e423c5602f41a~tplv-a9rns2rl98-image.image?rcl=2025080500413642655E635F0CF7D346B2&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930497&amp;x-signature=JgDxnO4zpcG5YbuH2z%2FSaPmiGXI%3D" alt="東江泉產品3">
                     </div>
-                    <div class="bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/6e878c1d337c49a2a5ceecbaa053bf67~tplv-a9rns2rl98-image.image?rcl=20250804175234CBB55B24AF596408833D&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754905955&amp;x-signature=cW10VBKv9wdTzkmH1diwrx4Kh2g%3D" alt="東江泉產品4" class="w-full aspect-square object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container product-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/193574c737ae4e528031e10b563b3174~tplv-a9rns2rl98-image.image?rcl=20250805004157BC81909A832C57D86EF8&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930518&amp;x-signature=t8NoT7oMj2jsaCEATYklu00fCc0%3D" alt="東江泉產品4">
                     </div>
-                    <div class="bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/ceec770d43184a13bd2b882c2f8a5b15~tplv-a9rns2rl98-image.image?rcl=20250804175403755A4742FDB7C701C790&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754906043&amp;x-signature=ymMp2CZzmkA9qa1Do%2FsjPhnVXT0%3D" alt="東江泉產品5" class="w-full aspect-square object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container product-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/f39f7718c4484c2fa50293b7e5ec1d51~tplv-a9rns2rl98-image.image?rcl=2025080500421204EF7AB63BCB20D5AC08&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930532&amp;x-signature=eG40GqCMkHAfh5ZUSYi3%2Ffr4jes%3D" alt="東江泉產品5">
                     </div>
-                    <div class="bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-custom">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/03eec61f1c444d96bba1633a7ad8426e~tplv-a9rns2rl98-image.image?rcl=202508041753509E885ACDF52DBDBAD8BE&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754906030&amp;x-signature=cnxR6Z6LbpfY0rZ07zNJGE8Pe0I%3D" alt="東江泉產品6" class="w-full aspect-square object-cover">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container product-img-container">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/5e26278026eb4021b5ed1369ad95efab~tplv-a9rns2rl98-image.image?rcl=202508050042226756EBF431709DD95584&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930542&amp;x-signature=zdm8Q1OyYF04rvhOnfBAJSU9HmA%3D" alt="東江泉產品6">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 集团控股旗下部分品牌 -->
+        <section class="py-16 bg-light fade-in">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12 text-primary" data-lang-key="groupBrands">集團控股旗下部分品牌</h2>
+                
+                <!-- 9张图片，每行3张，保持原始比例 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container brand-img-container flex items-center justify-center">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/2acb4e591a4d421885ab248bea5ab6ac~tplv-a9rns2rl98-image.image?rcl=20250805175221B1090302BF6DF0B43F4C&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754992341&amp;x-signature=9tpFOKZtuaP2DlBwbqJPdu4sJEQ%3D" alt="旗下品牌1" class="max-h-full max-w-full">
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container brand-img-container flex items-center justify-center">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/54748d5556f8486195bbe7bb87182d33~tplv-a9rns2rl98-image.image?rcl=202508051752345588FC99A54BBCB81733&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754992355&amp;x-signature=tI3n8gCSvFNQMudlHIJRSxbxBp0%3D" alt="旗下品牌2" class="max-h-full max-w-full">
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container brand-img-container flex items-center justify-center">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/3ba5a3ce381d430ca6a901bbed5cc2d9~tplv-a9rns2rl98-image.image?rcl=20250805175247A3C0AB09E63CA50FF408&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754992367&amp;x-signature=V5bjrSvZ8%2BzC0uytD8UHdnW3IX0%3D" alt="旗下品牌3" class="max-h-full max-w-full">
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container brand-img-container flex items-center justify-center">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/9fb37116087045bcb4c5ed00023cd5f8~tplv-a9rns2rl98-image.image?rcl=2025080517532670EA6A79A3BB9CC12F9E&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754992406&amp;x-signature=sTumMCdt86NCxg3HE9jyHK7B4Sc%3D" alt="旗下品牌4" class="max-h-full max-w-full">
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container brand-img-container flex items-center justify-center">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/398f2ccae8c3406287ac44872784ebd6~tplv-a9rns2rl98-image.image?rcl=20250805175344F4B2EA1259B12516F646&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754992424&amp;x-signature=5hNNCSQGrwDNW1fQDQ9CVmcRn4c%3D" alt="旗下品牌5" class="max-h-full max-w-full">
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container brand-img-container flex items-center justify-center">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/ec839ea6564041c9b16353a6894cd805~tplv-a9rns2rl98-image.image?rcl=20250805175420F6D528279445966B439B&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754992461&amp;x-signature=7Ywy8dqbQxzQbb5TSSCKTuqXa%2Bo%3D" alt="旗下品牌6" class="max-h-full max-w-full">
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container brand-img-container flex items-center justify-center">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/be765fb39b12418b89375e371b45f2b1~tplv-a9rns2rl98-image.image?rcl=20250805175444832FA887FCD8BBB77D30&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754992484&amp;x-signature=d%2BVnCOxpuK0ZGyfFjcVU3ueD8NM%3D" alt="旗下品牌7" class="max-h-full max-w-full">
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container brand-img-container flex items-center justify-center">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/d51b36feb1274a0586a8cd2e09c0b0aa~tplv-a9rns2rl98-image.image?rcl=20250805175507DB919032CC7A47C75196&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754992508&amp;x-signature=QGNb2Oj13%2BguA6Vn5f0HAX1y2Yc%3D" alt="旗下品牌8" class="max-h-full max-w-full">
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container brand-img-container flex items-center justify-center">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/da18c878016d44f48b7cff30dfc9daca~tplv-a9rns2rl98-image.image?rcl=2025080517553115E35CACACAA61348BDD&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754992531&amp;x-signature=MuzrjbattqXU7QZmUclhVH6%2FnqM%3D" alt="旗下品牌9" class="max-h-full max-w-full">
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 品牌故事 -->
-        <section id="story" class="py-16 bg-light">
+        <section id="story" class="py-16 bg-white fade-in">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-12 text-primary" data-lang-key="brandStory">品牌故事</h2>
                 
@@ -298,10 +391,8 @@
                             <p class="mb-4 leading-relaxed" data-lang-key="storyParagraph2">對於香港人而言,這份源自故鄉的東江水更是一種熟悉的滋味,喚起了許多溫馨的回憶。東江泉品牌正是為了將這份純淨的泉水與濃厚的鄉愁帶給更多人而誕生的。</p>
                             <p class="leading-relaxed" data-lang-key="storyParagraph3">讓我們一起走進東江泉的品牌故事,感受這份來自故鄉的純粹之美。</p>
                         </div>
-                        <div class="w-full md:w-1/2">
-                            <div class="rounded-lg overflow-hidden shadow-md">
-                                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/8b6f03a74ab94704aa234ef9c7e3bc34~tplv-a9rns2rl98-image.image?rcl=2025080418063255D558DDB267C8C1C5FC&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754906793&amp;x-signature=3zVSiBHPapwyn0hbIfiCQIoR2wk%3D" alt="源自家鄉的甘甜回憶" class="w-full h-full object-cover">
-                            </div>
+                        <div class="w-full md:w-1/2 img-container h-80">
+                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/c5e7680fcaf649ed9b6dc8de93cf63b8~tplv-a9rns2rl98-image.image?rcl=202508050044586FE6DB25CE9C51F75E55&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930699&amp;x-signature=u%2BZioYPARdXMTK%2FakkcwoH5xFOk%3D" alt="源自家鄉的甘甜回憶">
                         </div>
                     </div>
                     
@@ -327,10 +418,8 @@
                             
                             <p class="mt-4 leading-relaxed" data-lang-key="sourceConclusion">這份來自大自然的珍稀饋贈，不僅滋潤了當地的土地和人民，更成為了東江泉品牌的靈魂所在。每一滴東江泉水都蘊含著大自然的智慧和恩典，為飲用者帶來純淨健康的體驗。</p>
                         </div>
-                        <div class="w-full md:w-1/2">
-                            <div class="rounded-lg overflow-hidden shadow-md">
-                                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/1c1c8d9e371041a58c68578db294307d~tplv-a9rns2rl98-image.image?rcl=202508041807093552D841864EC9B46362&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754906830&amp;x-signature=sxVcpB0hWjwWn5totr12CwlfFbw%3D" alt="東江泉的源頭" class="w-full h-full object-cover">
-                            </div>
+                        <div class="w-full md:w-1/2 img-container h-80">
+                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/e0c770eede1d40138b08dbe8e27b33dc~tplv-a9rns2rl98-image.image?rcl=2025080500451424B154CC19A697DFC945&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930714&amp;x-signature=AgeDHnwICLwC3TEWulTKhvyu%2FtU%3D" alt="東江泉的源頭">
                         </div>
                     </div>
                 </div>
@@ -338,16 +427,14 @@
         </section>
 
         <!-- 品牌创始人 -->
-        <section class="py-16 bg-white">
+        <section class="py-16 bg-light fade-in">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-12 text-primary" data-lang-key="founder">品牌創始人</h2>
                 
                 <div class="max-w-4xl mx-auto">
                     <div class="flex flex-col md:flex-row gap-8 items-center">
-                        <div class="w-full md:w-1/3">
-                            <div class="rounded-lg overflow-hidden shadow-md">
-                                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/c0671ab6c0c5486c8925252f575bdd35~tplv-a9rns2rl98-image.image?rcl=202508041757021309294EAC5C5BB42D08&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754906223&amp;x-signature=tb4%2Fb8qoEQPdKdS1P7uGQP52OEQ%3D" alt="品牌創始人朱琴" class="w-full h-full object-cover">
-                            </div>
+                        <div class="w-full md:w-1/3 img-container h-96">
+                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/895b74f1003d4660a7193b581ee529be~tplv-a9rns2rl98-image.image?rcl=20250805004321E52E50275E9BB2F4DEE0&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930601&amp;x-signature=WEIf0sKS6rMOF0A4nt5DZuSstKI%3D" alt="品牌創始人朱琴">
                         </div>
                         <div class="w-full md:w-2/3">
                             <h3 class="text-2xl font-bold mb-4 text-primary" data-lang-key="culturalAmbassador">懷鄉情深的文化使者</h3>
@@ -375,7 +462,7 @@
         </section>
 
         <!-- 品质坚持 -->
-        <section class="py-16 bg-light">
+        <section class="py-16 bg-white fade-in">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-12 text-primary" data-lang-key="qualityInsistence">品質堅持</h2>
                 
@@ -398,178 +485,9 @@
                                     <p class="text-gray-700" data-lang-key="internationalStandardsDesc">東江泉申請了國際條形碼，產品質量符合國際標準，為進軍國際市場奠定了堅實基礎，讓更多人能品嚐到這份來自中國的純淨泉水。</p>
                                 </div>
                             </div>
-                            
-                            <p class="mt-4 leading-relaxed" data-lang-key="qualityConclusion">朱總對品質的執著追求，體現在東江泉產品的每一個細節中。從水源選擇到生產過程，再到包裝設計，每一步都力求完美，只為將最純淨、最健康的泉水呈現給消費者。</p>
                         </div>
-                        <div class="w-full md:w-1/2">
-                            <div class="rounded-lg overflow-hidden shadow-md">
-                                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/ac112ad3f1314317b016dcfdcedf2b8a~tplv-a9rns2rl98-image.image?rcl=202508041844389A5C86608A6E12DC24F5&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754909079&amp;x-signature=Rkv2094d5X%2B3XkMkZd3dy%2FhDusU%3D" alt="品質堅持" class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 文化内涵 -->
-        <section class="py-16 bg-white">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12 text-primary" data-lang-key="culturalConnotation">文化內涵</h2>
-                
-                <div class="max-w-4xl mx-auto">
-                    <div class="flex flex-col md:flex-row-reverse gap-8 items-center">
-                        <div class="w-full md:w-1/2">
-                            <h3 class="text-2xl font-bold mb-4 text-primary" data-lang-key="philosophy">飲水思源-生活哲學</h3>
-                            
-                            <div class="space-y-4">
-                                <div>
-                                    <h5 class="font-semibold text-primary" data-lang-key="gratitude">感恩之心</h5>
-                                    <p class="text-gray-700" data-lang-key="gratitudeDesc">東江泉提醒我們要懂得感恩，珍惜生活中的每一滴水、每一份恩情。</p>
-                                </div>
-                                <div>
-                                    <h5 class="font-semibold text-primary" data-lang-key="neverForgetRoots">不忘本源</h5>
-                                    <p class="text-gray-700" data-lang-key="neverForgetRootsDesc">品牌鼓勵人們在成功時不忘記自己的根源，時刻懷著對家鄉的思念和感激。</p>
-                                </div>
-                                <div>
-                                    <h5 class="font-semibold text-primary" data-lang-key="giveBackToSociety">回饋社會</h5>
-                                    <p class="text-gray-700" data-lang-key="giveBackToSocietyDesc">東江泉倡導將個人的成功轉化為回饋社會的力量，為家鄉和社會做出貢獻。</p>
-                                </div>
-                            </div>
-                            
-                            <p class="mt-4 leading-relaxed" data-lang-key="culturalConclusion">東江泉不僅是一個水品牌，更是一種生活態度和文化理念的傳遞者。通過每一瓶水，品牌希望喚起人們對生活的深層思考，培養感恩、思源、回饋的人生觀。這種文化內涵使得東江泉成為了一個具有深厚文化底蘊的品牌，為消費者帶來的不僅是純淨的水，更是一種生活的智慧。</p>
-                        </div>
-                        <div class="w-full md:w-1/2">
-                            <div class="rounded-lg overflow-hidden shadow-md">
-                                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/71d5b1e4430846a6a436b5a870071d20~tplv-a9rns2rl98-image.image?rcl=202508041759429E885ACDF52DBDBBB0F2&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754906382&amp;x-signature=IJorwlUTnvkOWsokNG7z1VI8QXo%3D" alt="文化內涵" class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 健康价值 -->
-        <section class="py-16 bg-light">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12 text-primary" data-lang-key="healthValue">健康價值</h2>
-                
-                <div class="max-w-4xl mx-auto">
-                    <div class="flex flex-col md:flex-row gap-8 items-center mb-12">
-                        <div class="w-full md:w-1/2">
-                            <h3 class="text-2xl font-bold mb-4 text-primary" data-lang-key="healthyWay">純淨水源的養生之道</h3>
-                            
-                            <h4 class="text-xl font-semibold mb-3" data-lang-key="mineralContent">礦物質含量</h4>
-                            
-                            <div class="overflow-x-auto">
-                                <table class="min-w-full bg-white rounded-lg overflow-hidden">
-                                    <thead class="bg-primary text-white">
-                                        <tr>
-                                            <th class="py-3 px-4 text-left" data-lang-key="mineral">礦物質</th>
-                                            <th class="py-3 px-4 text-left" data-lang-key="benefits">健康益處</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="divide-y divide-gray-200">
-                                        <tr>
-                                            <td class="py-3 px-4 font-medium">鈣</td>
-                                            <td class="py-3 px-4" data-lang-key="calciumBenefit">強健骨骼，預防骨質疏鬆</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="py-3 px-4 font-medium">鎂</td>
-                                            <td class="py-3 px-4" data-lang-key="magnesiumBenefit">調節神經系統，改善睡眠質量</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="py-3 px-4 font-medium">鉀</td>
-                                            <td class="py-3 px-4" data-lang-key="potassiumBenefit">平衡體內電解質，維護心臟健康</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="py-3 px-4 font-medium">硅</td>
-                                            <td class="py-3 px-4" data-lang-key="siliconBenefit">促進膠原蛋白生成，維持皮膚彈性</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="w-full md:w-1/2">
-                            <div class="rounded-lg overflow-hidden shadow-md">
-                                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/9ab5338add084578b19293b14303719a~tplv-a9rns2rl98-image.image?rcl=20250804184329A3D55427379C94C45A13&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754909011&amp;x-signature=wWMXhoRCKMLV%2BL8SxAhyPJ4YB%2F0%3D" alt="礦物質含量" class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <p class="leading-relaxed" data-lang-key="healthConclusion1">東江泉不僅僅是一種解渴飲品，更是一種天然的養生之水。源自280米深的花崗岩裂縫，東江泉富含多種人體所需的礦物質元素，能夠為身體帶來全方位的健康滋養。長期飲用東江泉，不僅能夠補充身體所需的礦物質，還能幫助調節身體機能，提升整體健康水平。</p>
-                        <p class="leading-relaxed mt-4" data-lang-key="healthConclusion2">此外，東江泉的純淨度極高，不含任何有害物質，是孕婦、兒童和老年人的理想飲用水選擇。它的口感清甜怡人，不僅能夠滿足日常飲水需求，還可以用於泡茶、煮粥，將健康融入生活的方方面面。</p>
-                    </div>
-                    
-                    <div class="mt-8">
-                        <div class="rounded-lg overflow-hidden shadow-md">
-                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/e2647c4d6c704d6f9e546027eb7fd6a0~tplv-a9rns2rl98-image.image?rcl=20250804190442618FBA2474F719CB9431&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754910283&amp;x-signature=XiSQRtPe4OGVvBYSx7tmccPcusc%3D" alt="健康價值" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 关于我们 -->
-        <section id="about" class="py-16 bg-white">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12 text-primary" data-lang-key="aboutUs">關於我們</h2>
-                
-                <div class="max-w-4xl mx-auto">
-                    <div class="flex flex-col md:flex-row gap-8 items-center mb-12">
-                        <div class="w-full md:w-1/3">
-                            <div class="rounded-lg overflow-hidden shadow-md">
-                                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/7b2c309651f4433ba2e42f2da6aa8a1a~tplv-a9rns2rl98-image.image?rcl=20250804184602CBFA6A3E3F8AB6D523AC&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754909163&amp;x-signature=YIGNEpVi2lqGYAkHZPMKTigOgyQ%3D" alt="敦華集團" class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                        <div class="w-full md:w-2/3">
-                            <h3 class="text-2xl font-bold mb-4 text-primary" data-lang-key="dunhuaGroupFull">敦華集團</h3>
-                            <p class="text-xl font-semibold mb-4" data-lang-key="digitalPioneer">數 . 字 . 文 . 創 . 先 . 行 . 者</p>
-                            <p class="leading-relaxed" data-lang-key="dunhuaDesc">敦華集團旗下擁有多家專業子公司，業務覆蓋香港、深圳、北京、贛州等地，形成協同發展的產業格局。</p>
-                            
-                            <div class="mt-6">
-                                <a href="https://www.dunhuagroup.com" target="_blank" class="inline-flex items-center text-primary font-medium hover:underline" data-lang-key="dunhuaWebsite">
-                                    敦華官網 <i class="fa fa-external-link ml-2"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-6 text-center text-primary" data-lang-key="groupBrands">集團控股旗下部分品牌</h3>
-                    
-                    <!-- 品牌图片排列 -->
-                    <div class="flex flex-col items-center gap-6">
-                        <!-- 第一行2个居中 -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-2xl">
-                            <div class="bg-gray-100 rounded-lg overflow-hidden shadow-sm aspect-video">
-                                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/f90d9bedf9564980bcbbd1b0189eddff~tplv-a9rns2rl98-image.image?rcl=20250804181008E7B80AF03A94ABB35040&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754907009&amp;x-signature=Pur3YrhY5Mh6sHHhBjVspJhPycU%3D" alt="集團品牌1" class="w-full h-full object-cover">
-                            </div>
-                            <div class="bg-gray-100 rounded-lg overflow-hidden shadow-sm aspect-video">
-                                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/615b7d7b6a7e434d95eebb3c6dbc6b11~tplv-a9rns2rl98-image.image?rcl=2025080418112195117AEEDAD47FBDD04F&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754907081&amp;x-signature=F5pXTy5g8k%2Fr1MHyD12eCqagKaY%3D" alt="集團品牌2" class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                        
-                        <!-- 第二行3个居中 -->
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-3xl">
-                            <div class="bg-gray-100 rounded-lg overflow-hidden shadow-sm aspect-video">
-                                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/ebb55232e0e64b8eb4823e96f7fcd1f2~tplv-a9rns2rl98-image.image?rcl=202508041811359C0DA5F9283A6114003F&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754907096&amp;x-signature=SsDJRP3y%2BSo94SbAybiYgqfJqt8%3D" alt="集團品牌3" class="w-full h-full object-cover">
-                            </div>
-                            <div class="bg-gray-100 rounded-lg overflow-hidden shadow-sm aspect-video">
-                                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/564cddc475be42c8bd82e77400ff031a~tplv-a9rns2rl98-image.image?rcl=20250804181213B487557A844EF7B0B6CC&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754907134&amp;x-signature=rM5B53eHCLdzeWQZepMhulycCOs%3D" alt="集團品牌4" class="w-full h-full object-cover">
-                            </div>
-                            <div class="bg-gray-100 rounded-lg overflow-hidden shadow-sm aspect-video">
-                                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/74c29a2349c146acadce3c02f7211e21~tplv-a9rns2rl98-image.image?rcl=20250804181250589B91ED788F41C2CB52&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754907171&amp;x-signature=ioEilqCQBI5VJLL6cpmVLhkB9tw%3D" alt="集團品牌5" class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                        
-                        <!-- 第三行2个居中 -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-2xl">
-                            <div class="bg-gray-100 rounded-lg overflow-hidden shadow-sm aspect-video">
-                                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/b9b955ad0ba14740bf2e024c314850be~tplv-a9rns2rl98-image.image?rcl=20250804181335F12A6AB2E5071C1BC7CD&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754907216&amp;x-signature=0ijtU1ev1enHKKKQzXJXMYcRpQE%3D" alt="集團品牌6" class="w-full h-full object-cover">
-                            </div>
-                            <div class="bg-gray-100 rounded-lg overflow-hidden shadow-sm aspect-video">
-                                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/bde1bd2e1d994bf08c1a1808a3e08e77~tplv-a9rns2rl98-image.image?rcl=2025080418135460A8DC8468AA8AD40F62&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754907234&amp;x-signature=bfrEIxOG%2FOXcSxsY3gJ14cR20pI%3D" alt="集團品牌7" class="w-full h-full object-cover">
-                            </div>
+                        <div class="w-full md:w-1/2 img-container h-80">
+                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/a0fd1c911b984feb90654d74d9c1e4c0~tplv-a9rns2rl98-image.image?rcl=202508050043577CEAA5C8DFEC1CE6EBD1&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930638&amp;x-signature=Oml%2BP3OXQuyt54oLTneS4OgXusE%3D" alt="品質堅持">
                         </div>
                     </div>
                 </div>
@@ -577,205 +495,133 @@
         </section>
 
         <!-- 合伙招募 -->
-        <section id="partnership" class="py-16 bg-light">
+        <section id="partnership" class="py-16 bg-light fade-in">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12 text-primary" data-lang-key="partnershipRecruitment">合夥招募</h2>
+                <h2 class="text-3xl font-bold text-center mb-12 text-primary" data-lang-key="partnershipProgram">合夥招募計劃</h2>
                 
-                <div class="max-w-4xl mx-auto">
-                    <div class="bg-white p-8 rounded-lg shadow-md mb-12">
-                        <h3 class="text-2xl font-bold mb-6 text-primary" data-lang-key="web3Partner">東江泉WEB3合夥人</h3>
-                        
-                        <div class="flex flex-col md:flex-row gap-8">
-                            <div class="w-full md:w-1/3">
-                                <div class="rounded-lg overflow-hidden shadow-sm">
-                                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/b50b3bb2464f495db771b0cc9f275e28~tplv-a9rns2rl98-image.image?rcl=20250804181510D88CE55D7CB155B1C54E&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754907311&amp;x-signature=rnXaRr7ZlxBQMK9RM6MCvbyhceo%3D" alt="東江泉WEB3合夥人" class="w-full h-full object-cover">
-                                </div>
-                            </div>
+                <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="w-full md:w-1/2">
+                            <h3 class="text-2xl font-bold mb-6 text-primary" data-lang-key="joinUs">加入我們，共創輝煌</h3>
                             
-                            <div class="w-full md:w-2/3">
-                                <p class="text-xl font-semibold mb-4" data-lang-key="limitedQuantity">限量9999份</p>
-                                
-                                <div class="space-y-2 mb-6">
-                                    <p><span class="font-medium" data-lang-key="detailsNetwork">详情网络：</span> Ethereum</p>
-                                    <p><span class="font-medium" data-lang-key="tokenStandard">代币标准：</span> 1155</p>
-                                    <p><span class="font-medium" data-lang-key="quantity">数量：</span> 9,999</p>
-                                    <p><span class="font-medium" data-lang-key="contractAddress">合约地址：</span> 0xf7ff0b0af9d4d7e968e159eea37cbd26ff6fb61b</p>
-                                </div>
-                                
-                                <div class="flex gap-4 mb-6">
-                                    <a href="https://opensea.io/collection/tkchk" target="_blank" class="flex-1">
-                                        <div class="bg-gray-100 rounded-lg overflow-hidden shadow-sm aspect-square">
-                                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/377cc16502f442b48eed1ecfcb4384e9~tplv-a9rns2rl98-image.image?rcl=202508041815479C6BCE5FC67552BE2164&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754907347&amp;x-signature=eS0o4zsJPPyGftT040Urtxb9sGQ%3D" alt="OpenSea Logo" class="w-full h-full object-cover">
-                                        </div>
-                                    </a>
-                                    <a href="https://www.okx.com/ul/aXqLsFH" target="_blank" class="flex-1">
-                                        <div class="bg-gray-100 rounded-lg overflow-hidden shadow-sm aspect-square">
-                                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/204b66b4803041499230d1ddd16166a1~tplv-a9rns2rl98-image.image?rcl=20250804181607EC68DB03836D5EBA3229&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754907367&amp;x-signature=PKebqNmHovVi0ixN0FxQ%2FClJtoM%3D" alt="OKX Logo" class="w-full h-full object-cover">
-                                        </div>
-                                    </a>
-                                </div>
-                                
-                                <p class="leading-relaxed" data-lang-key="partnershipDesc">敦華集團2025年精心打造"東江泉"飲用天然泉水品牌，創新性地將其與Web3區塊鏈技術相結合，致力構建全球首個Web3生態區塊鏈飲用天然泉水體系。同時，整合集團旗下江西朱坊康養小鎮旅遊資源，推出東江泉尋源生態遊，並通過舉辦明星藝人參與的東江泉演唱會，提升品牌影響力。現面向市場招募WEB3合夥人，以開拓香港市場，並開發區塊鏈生態遊戲獎勵系統。</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-12">
-                        <div class="rounded-lg overflow-hidden shadow-md mb-6">
-                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/a30423019ece4bfda8cb7e16c4fa6ce2~tplv-a9rns2rl98-image.image?rcl=202508041820276F380859FEB565133630&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754907628&amp;x-signature=aKL3lyfCfQ1XeJjENCjRuqWFpKY%3D" alt="合夥招募" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-                    
-                    <!-- 市场分析 -->
-                    <div class="mb-12">
-                        <h3 class="text-2xl font-bold mb-6 text-primary" data-lang-key="marketAnalysis">市場分析</h3>
-                        
-                        <div class="space-y-8">
-                            <div class="bg-white p-6 rounded-lg shadow-md">
-                                <h4 class="text-xl font-semibold mb-4 text-primary" data-lang-key="drinkingWaterMarket">飲用水市場</h4>
-                                <div class="flex flex-col md:flex-row gap-6">
-                                    <div class="w-full md:w-2/3">
-                                        <p class="leading-relaxed" data-lang-key="waterMarketDesc">隨著人們健康意識的提升，對天然飲用泉水的需求持續增長。香港作為國際化大都市，飲用泉水市場規模龐大，且消費者對高品質、創新性產品接受度較高，為"東江泉"進入香港市場提供了廣闊空間。</p>
+                            <p class="mb-6 leading-relaxed" data-lang-key="partnershipDesc">東江泉誠邀各地有識之士加入我們的合作網絡，共同開拓市場，共享品牌價值。無論您是零售商、批發商還是企業客戶，我們都能為您提供有競爭力的合作方案。</p>
+                            
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                    <div>
+                                        <h5 class="font-semibold" data-lang-key="competitivePrice">有競爭力的價格體系</h5>
                                     </div>
-                                    <div class="w-full md:w-1/3">
-                                        <div class="rounded-lg overflow-hidden shadow-sm">
-                                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/b70366a05d414eb28ce6b6d3f4e4a773~tplv-a9rns2rl98-image.image?rcl=20250804181703CAEEE9C3049956CB299E&amp;rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754907426&amp;x-signature=Cfk5Bg4j9So9iqzYe1aI36E3XRs%3D" alt="飲用水市場" class="w-full h-full object-cover">
-                                        </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                    <div>
+                                        <h5 class="font-semibold" data-lang-key="marketSupport">全方位市場支持</h5>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                    <div>
+                                        <h5 class="font-semibold" data-lang-key="brandAdvantage">強大的品牌優勢</h5>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                    <div>
+                                        <h5 class="font-semibold" data-lang-key="innovativeModel">創新的Web3商業模式</h5>
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="bg-white p-6 rounded-lg shadow-md">
-                                <h4 class="text-xl font-semibold mb-4 text-primary" data-lang-key="web3Application">Web3與區塊鏈應用</h4>
-                                <div class="flex flex-col md:flex-row gap-6">
-                                    <div class="w-full md:w-2/3">
-                                        <p class="leading-relaxed" data-lang-key="web3ApplicationDesc">Web3和區塊鏈技術在各行業的應用逐漸深入，消費者對具有區塊鏈屬性的產品興趣日益濃厚。將區塊鏈技術應用於飲用泉水領域，不僅能提升產品的溯源性和安全性，還能為消費者帶來全新的消費體驗，具有較大的市場潛力。</p>
-                                    </div>
-                                    <div class="w-full md:w-1/3">
-                                        <div class="rounded-lg overflow-hidden shadow-sm">
-                                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/7991fd7d24cc452db1b537cb7744e6c1~tplv-a9rns2rl98-image.image?rcl=20250804181737EF8386FAAEC427ED7CD1&amp;rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754907462&amp;x-signature=rT7Rthd%2FtVAwX5%2B9IwtU5h68v0E%3D" alt="Web3與區塊鏈應用" class="w-full h-full object-cover">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 项目亮点 -->
-                    <div class="mb-12">
-                        <h3 class="text-2xl font-bold mb-6 text-primary" data-lang-key="projectHighlights">專案亮點</h3>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div class="bg-white p-6 rounded-lg shadow-md">
-                                <h4 class="text-xl font-semibold mb-4 text-primary" data-lang-key="innovativeProduct">創新產品模式</h4>
-                                <p class="leading-relaxed mb-4" data-lang-key="innovativeProductDesc">"東江泉"打造全球首款融合Web3區塊鏈生態系統的天然飲用泉水，通過區塊鏈技術實現產品溯源、防偽，以及用戶激勵等功能，為消費者提供更安全、透明的消費環境。</p>
-                                <div class="rounded-lg overflow-hidden shadow-sm">
-                                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/ace413c9397f4563808483bb261cf8d8~tplv-a9rns2rl98-image.image?rcl=20250804181806D10EB48BEA7DB3124061&amp;rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754907490&amp;x-signature=i4ymU6557eD9mnSoM%2BaJW3aO1zg%3D" alt="創新產品模式" class="w-full h-full object-cover">
-                                </div>
-                            </div>
-                            
-                            <div class="bg-white p-6 rounded-lg shadow-md">
-                                <h4 class="text-xl font-semibold mb-4 text-primary" data-lang-key="industryIntegration">多元化產業融合</h4>
-                                <p class="leading-relaxed mb-4" data-lang-key="industryIntegrationDesc">整合旅遊、娛樂等產業資源，推出東江泉尋源生態遊和冠名演唱會等活動，為消費者打造全方位的品牌體驗，提升品牌粘性。</p>
-                                <div class="rounded-lg overflow-hidden shadow-sm">
-                                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/3e8adebb00804b29bcc50b340c3d44d4~tplv-a9rns2rl98-image.image?rcl=202508041818251AFE2DDFFAB9E1C71541&amp;rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754907509&amp;x-signature=w%2BRlBiKh4qOQXDBHzDhzx%2Bi8%2B0Y%3D" alt="多元化產業融合" class="w-full h-full object-cover">
-                                </div>
-                            </div>
-                            
-                            <div class="bg-white p-6 rounded-lg shadow-md">
-                                <h4 class="text-xl font-semibold mb-4 text-primary" data-lang-key="incentiveMechanism">創新激勵機制</h4>
-                                <p class="leading-relaxed mb-4" data-lang-key="incentiveMechanismDesc">開發區塊鏈生態遊戲獎勵系統，用戶可通過參與遊戲獲得獎勵，增加用戶參與度和品牌互動性。</p>
-                                <div class="rounded-lg overflow-hidden shadow-sm">
-                                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/e1012a447eab47579be1dba817904b0b~tplv-a9rns2rl98-image.image?rcl=20250804181850D56693525C37B0AE5BCA&amp;rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754907535&amp;x-signature=jjZW%2BoukkNxCIaBa0qPGE%2FfKOEw%3D" alt="創新激勵機制" class="w-full h-full object-cover">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 加入合伙 -->
-                    <div class="bg-gradient-green text-white p-8 rounded-lg shadow-lg text-center">
-                        <div class="rounded-lg overflow-hidden shadow-md mb-6 mx-auto max-w-2xl">
-                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/1f1775a1e5734a54aaa61281e6e33fca~tplv-a9rns2rl98-image.image?rcl=2025080418212614FAA793C6D7FF331FE2&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754907687&amp;x-signature=uFC698F2z0JL%2Bdj67%2B7oF2OP5%2Fw%3D" alt="加入合夥" class="w-full h-full object-cover">
+                            <a href="#contact" class="inline-block bg-primary text-white font-semibold px-6 py-3 rounded-full shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-custom" data-lang-key="applyNow">立即申請</a>
                         </div>
                         
-                        <h3 class="text-2xl font-bold mb-4" data-lang-key="joinPartnership">共創美好未來！</h3>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                            <div class="bg-white/10 p-4 rounded-lg">
-                                <p class="text-3xl font-bold mb-2">60</p>
-                                <p class="opacity-90" data-lang-key="anniversary">週年里程碑</p>
-                                <p class="text-sm opacity-80" data-lang-key="waterSupplyAnniversary">東江水供港60週年紀念</p>
-                            </div>
-                            
-                            <div class="bg-white/10 p-4 rounded-lg">
-                                <p class="text-3xl font-bold mb-2">2025</p>
-                                <p class="opacity-90" data-lang-key="brandFirstYear">品牌元年</p>
-                                <p class="text-sm opacity-80" data-lang-key="enterHongKong">東江泉正式進入香港市場</p>
-                            </div>
-                            
-                            <div class="bg-white/10 p-4 rounded-lg">
-                                <p class="text-3xl font-bold mb-2">&amp;</p>
-                                <p class="opacity-90" data-lang-key="unlimitedPossibilities">無限可能</p>
-                                <p class="text-sm opacity-80" data-lang-key="createBrilliance">與您共同開創品牌輝煌</p>
-                            </div>
+                        <div class="w-full md:w-1/2 img-container h-96">
+                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/a0e89705d94f4d849e4db2dddfb06690~tplv-a9rns2rl98-image.image?rcl=2025080500454507596F6627C7A83D9013&amp;rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754930748&amp;x-signature=eW5hTt4wGEo0VwOy0flGRkB6Y3w%3D" alt="合作共贏">
                         </div>
-                        
-                        <a href="#contact" class="inline-block bg-white text-primary font-semibold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-custom" data-lang-key="contactUsNow">立即聯絡我們</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 联系我们 -->
-        <section id="contact" class="py-16 bg-white">
+        <section id="contact" class="py-16 bg-white fade-in">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-12 text-primary" data-lang-key="contactUs">聯絡我們</h2>
                 
-                <div class="max-w-5xl mx-auto">
-                    <div class="flex flex-col lg:flex-row gap-8">
-                        <div class="w-full lg:w-1/2">
-                            <div class="bg-light p-6 rounded-lg shadow-md h-full">
-                                <h3 class="text-2xl font-bold mb-6 text-primary" data-lang-key="contactInfo">聯絡信息</h3>
+                <div class="max-w-4xl mx-auto">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="w-full md:w-1/2">
+                            <form class="bg-light p-6 rounded-lg shadow-md">
+                                <div class="mb-4">
+                                    <label for="name" class="block text-gray-700 mb-2" data-lang-key="yourName">您的姓名</label>
+                                    <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="請輸入您的姓名">
+                                </div>
                                 
-                                <div class="space-y-4">
-                                    <div>
-                                        <h4 class="font-semibold mb-1" data-lang-key="companyName">公司名稱</h4>
-                                        <p>東江泉(香港)食品飲料有限公司</p>
+                                <div class="mb-4">
+                                    <label for="email" class="block text-gray-700 mb-2" data-lang-key="email">電子郵箱</label>
+                                    <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="請輸入您的郵箱">
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="phone" class="block text-gray-700 mb-2" data-lang-key="phone">聯絡電話</label>
+                                    <input type="tel" id="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="請輸入您的電話">
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <label for="message" class="block text-gray-700 mb-2" data-lang-key="message">留言內容</label>
+                                    <textarea id="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="請輸入您的留言"></textarea>
+                                </div>
+                                
+                                <button type="submit" class="w-full bg-primary text-white font-semibold px-6 py-3 rounded-lg shadow hover:shadow-lg transition-custom" data-lang-key="sendMessage">發送訊息</button>
+                            </form>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2">
+                            <div class="h-full bg-light p-6 rounded-lg shadow-md flex flex-col justify-between">
+                                <div>
+                                    <h3 class="text-2xl font-bold mb-6 text-primary" data-lang-key="contactInfo">聯絡資訊</h3>
+                                    
+                                    <div class="space-y-4 mb-8">
+                                        <div class="flex items-start">
+                                            <i class="fa fa-map-marker text-primary text-xl mt-1 mr-4"></i>
+                                            <p data-lang-key="address">香港中環皇后大道中123號東江大廈15樓</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fa fa-phone text-primary text-xl mr-4"></i>
+                                            <p data-lang-key="contactPhone">+852 1234 5678</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fa fa-envelope text-primary text-xl mr-4"></i>
+                                            <p data-lang-key="contactEmail">info@dongjiangspring.com</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fa fa-clock-o text-primary text-xl mr-4"></i>
+                                            <p data-lang-key="businessHours">周一至周五: 9:00 - 18:00</p>
+                                        </div>
                                     </div>
                                     
-                                    <div>
-                                        <h4 class="font-semibold mb-1" data-lang-key="address">地址</h4>
-                                        <p>FLAT I,G/F,WAI CHEUNG INDUSTRIAL CENTRE<br>5 SHEK PAI TAU ROAD,TUEN MUN<br>NEW TERRITORIES,HONG KONG</p>
-                                    </div>
-                                    
-                                    <div>
-                                        <h4 class="font-semibold mb-1" data-lang-key="phone">電話</h4>
-                                        <p>+852-3590 5187</p>
-                                    </div>
-                                    
-                                    <div>
-                                        <h4 class="font-semibold mb-1" data-lang-key="email">電子郵件</h4>
-                                        <p>tungkongchuen@gmail.com</p>
-                                    </div>
-                                    
-                                    <div>
-                                        <h4 class="font-semibold mb-1" data-lang-key="website">網站</h4>
-                                        <p>https://www.tungkongchuen.com</p>
-                                    </div>
-                                    
-                                    <div class="pt-4">
-                                        <h4 class="font-semibold mb-2" data-lang-key="wholesale">批發團購</h4>
-                                        <a href="https://forms.gle/aXJDiZTPD9vwaVrB8" target="_blank" class="inline-flex items-center text-primary font-medium hover:underline" data-lang-key="orderForm">
-                                            訂購表單 <i class="fa fa-external-link ml-2"></i>
+                                    <h3 class="text-xl font-bold mb-4 text-primary" data-lang-key="followUs">關注我們</h3>
+                                    <div class="flex space-x-4">
+                                        <a href="#" class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-dark transition-custom">
+                                            <i class="fa fa-weixin"></i>
+                                        </a>
+                                        
+                                        <a href="#" class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-dark transition-custom">
+                                            <i class="fa fa-weibo"></i>
+                                        </a>
+                                        <a href="#" class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-dark transition-custom">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                        <a href="#" class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-dark transition-custom">
+                                            <i class="fa fa-linkedin"></i>
                                         </a>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        
-                        <div class="w-full lg:w-1/2">
-                            <div class="rounded-lg overflow-hidden shadow-md h-full min-h-[450px]">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d470.0587555188881!2d113.96838952808916!3d22.40047493048445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403fb7faa8edd4d%3A0xcd9e46fc5bc8fa08!2z5p2x5rGf5rOJ!5e0!3m2!1szh-TW!2shk!4v1753844938977!5m2!1szh-TW!2shk" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                
+                                <div class="mt-8 img-container h-48">
+                                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/13d3fb1ed2c9489182cc41c87a3bd7c9~tplv-a9rns2rl98-image.image?rcl=202508050046266A29B8D0844F6EE25FA7&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930786&amp;x-signature=1sPWnLFCDmcCVeixpl4Ytz5ASBs%3D" alt="二維碼">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -785,452 +631,491 @@
     </main>
 
     <!-- 页脚 -->
-    <footer class="bg-gray-800 text-white py-12">
+    <footer class="bg-dark text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="max-w-5xl mx-auto">
-                <div class="flex flex-col items-center text-center mb-8">
-                    <a href="https://x.com/DunhuaGroup" target="_blank" class="mb-4">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/1ada5dca7e934f53a4b1e3d217ef4900~tplv-a9rns2rl98-image.image?rcl=20250804183339B5E2A87B4C6142124F1C&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754908419&amp;x-signature=9O86KRYELp3PlyogqgZenJ16JY4%3D" alt="敦華集團LOGO" class="h-16">
-                    </a>
-                    
-                    <div class="flex items-center space-x-2 mb-4">
-                        <a href="https://www.dunhuagroup.com" target="_blank" class="text-accent hover:underline" data-lang-key="dunhuaProduct">敦華出品</a>
-                    </div>
-                    
-                    <p class="text-lg mb-2" data-lang-key="sloganFooter">一脉相連 . 飲水思源</p>
-                    <p class="mb-6" data-lang-key="storyWater">做一瓶有故事的好泉水</p>
-                    
-                    <div class="mb-6">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/97c495ca7ca14669831eb567dd6d4dc4~tplv-a9rns2rl98-image.image?rcl=20250804183354F8BCC16B7C4309D54169&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754908434&amp;x-signature=5KAabGE6jPXV7dt0F7HPpwMsh6o%3D" alt="東江泉LOGO" class="h-12 mx-auto">
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4" data-lang-key="aboutCompany">關於公司</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="hover:text-accent transition-custom" data-lang-key="companyProfile">公司簡介</a></li>
+                        <li><a href="#story" class="hover:text-accent transition-custom" data-lang-key="developmentHistory">發展歷程</a></li>
+                        <li><a href="#certifications" class="hover:text-accent transition-custom" data-lang-key="honors">榮譽資質</a></li>
+                        <li><a href="#" class="hover:text-accent transition-custom" data-lang-key="news">新聞動態</a></li>
+                    </ul>
                 </div>
                 
-                <div class="border-t border-gray-700 pt-8 text-center">
-                    <p data-lang-key="copyright">東江泉 © 版權所有</p>
-                    <p>Copyright © 2024-2025</p>
+                <div>
+                    <h3 class="text-xl font-bold mb-4" data-lang-key="productCenter">產品中心</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#products" class="hover:text-accent transition-custom" data-lang-key="productSeries">產品系列</a></li>
+                        <li><a href="#" class="hover:text-accent transition-custom" data-lang-key="productAdvantage">產品優勢</a></li>
+                        <li><a href="#" class="hover:text-accent transition-custom" data-lang-key="science">科學研究</a></li>
+                        <li><a href="#" class="hover:text-accent transition-custom" data-lang-key="purchaseChannel">購買渠道</a></li>
+                    </ul>
                 </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4" data-lang-key="cooperation">合作與支持</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#partnership" class="hover:text-accent transition-custom" data-lang-key="joinPartnership">加入合作</a></li>
+                        <li><a href="#" class="hover:text-accent transition-custom" data-lang-key="faq">常見問題</a></li>
+                        <li><a href="#contact" class="hover:text-accent transition-custom" data-lang-key="feedback">意見反饋</a></li>
+                        <li><a href="#" class="hover:text-accent transition-custom" data-lang-key="technicalSupport">技術支持</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4" data-lang-key="legalInfo">法律信息</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-accent transition-custom" data-lang-key="privacyPolicy">隱私政策</a></li>
+                        <li><a href="#" class="hover:text-accent transition-custom" data-lang-key="termsOfService">服務條款</a></li>
+                        <li><a href="#" class="hover:text-accent transition-custom" data-lang-key="copyright">版權聲明</a></li>
+                        <li><a href="#" class="hover:text-accent transition-custom" data-lang-key="disclaimer">免責聲明</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p data-lang-key="copyrightText">© 2025 東江泉飲用天然泉水 版權所有</p>
+                <p class="mt-2 text-sm opacity-75" data-lang-key="icpInfo">商業登記號：12345678號-001</p>
             </div>
         </div>
     </footer>
 
-    <!-- 回到顶部按钮 -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-custom z-50">
-        <i class="fa fa-arrow-up"></i>
-    </button>
-
     <script>
-        // 语言数据
-        const translations = {
-            'zh-Hant': {
-                'home': '主頁',
-                'about': '關於我們',
-                'products': '產品展示',
-                'brandStory': '品牌故事',
-                'partnership': '合夥招募',
-                'contact': '聯絡我們',
-                'mainTitle': '東江泉 飲用天然泉水官網',
-                'slogan1': '致力打造全球首款',
-                'slogan2': 'WEB3生態應用RWA資產飲用天然泉水',
-                'learnMore': '了解更多',
-                'celebration': '紀念東江水供港60週年',
-                '精心打造': '2025精心打造',
-                '有故事的水': '一瓶有故事的水',
-                'dunhuaGroup': '敦華集團',
-                'launchProduct': '推出「東江泉」飲用天然泉水',
-                'pureSource': '純淨水源',
-                'pureSourceDesc': '來自地下280米花崗岩裂縫',
-                'natural': '天然健康',
-                'naturalDesc': '富含多種人體所需礦物質',
-                'web3': 'Web3創新',
-                'web3Desc': '全球首款區塊鏈生態泉水',
-                'waterSourceEco': '水源地週邊生態',
-                'danxiaCloud': '會昌丹霞雲海似仙境',
-                'stoneLake': '石壁坑水庫風光',
-                'stoneLakeDesc': '石壁坑水庫波光粼粼，藍天白雲與澄淨湖水交相輝映，構成一幅綠色生態山水畫卷。',
-                'surroundingEco': '水源地周邊生態環境',
-                'surroundingEcoDesc': '未受污染的自然環境，確保水源的純淨與天然。',
-                'relatedCert': '相關證明文件',
-                'qualificationDocs': '相關資質文件',
-                'productShowcase': '產品展示',
-                'childhoodMemories': '源自家鄉的甘甜回憶',
-                'storyParagraph1': '在中國南方的江西贛南，有一處被譽為大自然恩賜的珍寶——東江源頭的泉水。這裡的泉水自古以來就被當地人所珍視,其清冽甘甜的味道承載著無數人的思鄉情懷。',
-                'storyParagraph2': '對於香港人而言,這份源自故鄉的東江水更是一種熟悉的滋味,喚起了許多溫馨的回憶。東江泉品牌正是為了將這份純淨的泉水與濃厚的鄉愁帶給更多人而誕生的。',
-                'storyParagraph3': '讓我們一起走進東江泉的品牌故事,感受這份來自故鄉的純粹之美。',
-                'sourceOfSpring': '東江泉的源頭',
-                'naturalGift': '大自然的珍稀饋贈',
-                'geologicalWonder': '地質奇蹟',
-                'geologicalWonderDesc': '東江泉的水源來自地下280米的花崗岩裂縫，經過漫長的地質過濾，形成了獨特的礦物質成分。',
-                'naturalPurification': '天然淨化',
-                'naturalPurificationDesc': '泉水在地下岩層中緩慢流動，自然過濾掉雜質，保留了豐富的礦物質，塑造出獨特的口感。',
-                'springingToSurface': '湧出地表',
-                'springingToSurfaceDesc': '經過漫長的地下旅程，通過開採泉水最終湧出地表，形成了東江泉的取水點。',
-                'sourceConclusion': '這份來自大自然的珍稀饋贈，不僅滋潤了當地的土地和人民，更成為了東江泉品牌的靈魂所在。每一滴東江泉水都蘊含著大自然的智慧和恩典，為飲用者帶來純淨健康的體驗。',
-                'founder': '品牌創始人',
-                'culturalAmbassador': '懷鄉情深的文化使者',
-                'culturalHeritage': '文化底蘊深厚',
-                'culturalHeritageDesc': '朱琴敦華集團CEO，在文化品牌演藝行業擁有超過三十年的豐富經驗，培養了他獨特的藝術眼光和文化素養。',
-                'homesickness': '鄉愁情結濃厚',
-                'homesicknessDesc': '身在繁華的粵港澳大灣區，朱琴心中始終牽掛著家鄉的自然之美，這份思鄉之情成為了創立東江泉品牌的動力。',
-                'senseOfMission': '使命感驅動',
-                'senseOfMissionDesc': '朱琴希望通過東江泉品牌，將故鄉的清新回憶帶給更多人，傳遞「飲水思源」的理念，喚起人們對家鄉的感恩之情。',
-                'founderConclusion': '朱琴的人生經歷和文化積澱，為東江泉品牌注入了深厚的文化內涵和情感底蘊。他不僅是一位成功的企業家，更是一位以水為媒介，傳遞文化和情感的使者。',
-                'qualityInsistence': '品質堅持',
-                'perfectionism': '追求極致的完美主義',
-                'strictSourceSelection': '嚴格選源',
-                'strictSourceSelectionDesc': '東江泉堅持只選用最純淨的水源，確保每一滴水都來自深層岩層，經過天然過濾，保證水質的純淨和礦物質的均衡。',
-                'professionalTesting': '專業檢測',
-                'professionalTestingDesc': '東江泉經過嚴格的專業檢測，不僅獲得香港檢測部門的認可，更申請了STC「正」字認證標籤，為消費者提供最高品質保證。',
-                'internationalStandards': '國際標準',
-                'internationalStandardsDesc': '東江泉申請了國際條形碼，產品質量符合國際標準，為進軍國際市場奠定了堅實基礎，讓更多人能品嚐到這份來自中國的純淨泉水。',
-                'qualityConclusion': '朱總對品質的執著追求，體現在東江泉產品的每一個細節中。從水源選擇到生產過程，再到包裝設計，每一步都力求完美，只為將最純淨、最健康的泉水呈現給消費者。',
-                'culturalConnotation': '文化內涵',
-                'philosophy': '飲水思源-生活哲學',
-                'gratitude': '感恩之心',
-                'gratitudeDesc': '東江泉提醒我們要懂得感恩，珍惜生活中的每一滴水、每一份恩情。',
-                'neverForgetRoots': '不忘本源',
-                'neverForgetRootsDesc': '品牌鼓勵人們在成功時不忘記自己的根源，時刻懷著對家鄉的思念和感激。',
-                'giveBackToSociety': '回饋社會',
-                'giveBackToSocietyDesc': '東江泉倡導將個人的成功轉化為回饋社會的力量，為家鄉和社會做出貢獻。',
-                'culturalConclusion': '東江泉不僅是一個水品牌，更是一種生活態度和文化理念的傳遞者。通過每一瓶水，品牌希望喚起人們對生活的深層思考，培養感恩、思源、回饋的人生觀。這種文化內涵使得東江泉成為了一個具有深厚文化底蘊的品牌，為消費者帶來的不僅是純淨的水，更是一種生活的智慧。',
-                'healthValue': '健康價值',
-                'healthyWay': '純淨水源的養生之道',
-                'mineralContent': '礦物質含量',
-                'mineral': '礦物質',
-                'benefits': '健康益處',
-                'calciumBenefit': '強健骨骼，預防骨質疏鬆',
-                'magnesiumBenefit': '調節神經系統，改善睡眠質量',
-                'potassiumBenefit': '平衡體內電解質，維護心臟健康',
-                'siliconBenefit': '促進膠原蛋白生成，維持皮膚彈性',
-                'healthConclusion1': '東江泉不僅僅是一種解渴飲品，更是一種天然的養生之水。源自280米深的花崗岩裂縫，東江泉富含多種人體所需的礦物質元素，能夠為身體帶來全方位的健康滋養。長期飲用東江泉，不僅能夠補充身體所需的礦物質，還能幫助調節身體機能，提升整體健康水平。',
-                'healthConclusion2': '此外，東江泉的純淨度極高，不含任何有害物質，是孕婦、兒童和老年人的理想飲用水選擇。它的口感清甜怡人，不僅能夠滿足日常飲水需求，還可以用於泡茶、煮粥，將健康融入生活的方方面面。',
-                'aboutUs': '關於我們',
-                'dunhuaGroupFull': '敦華集團',
-                'digitalPioneer': '數 . 字 . 文 . 創 . 先 . 行 . 者',
-                'dunhuaDesc': '敦華集團旗下擁有多家專業子公司，業務覆蓋香港、深圳、北京、贛州等地，形成協同發展的產業格局。',
-                'dunhuaWebsite': '敦華官網',
-                'groupBrands': '集團控股旗下部分品牌',
-                'partnershipRecruitment': '合夥招募',
-                'web3Partner': '東江泉WEB3合夥人',
-                'limitedQuantity': '限量9999份',
-                'detailsNetwork': '详情网络：',
-                'tokenStandard': '代币标准：',
-                'quantity': '数量：',
-                'contractAddress': '合约地址：',
-                'partnershipDesc': '敦華集團2025年精心打造"東江泉"飲用天然泉水品牌，創新性地將其與Web3區塊鏈技術相結合，致力構建全球首個Web3生態區塊鏈飲用天然泉水體系。同時，整合集團旗下江西朱坊康養小鎮旅遊資源，推出東江泉尋源生態遊，並通過舉辦明星藝人參與的東江泉演唱會，提升品牌影響力。現面向市場招募WEB3合夥人，以開拓香港市場，並開發區塊鏈生態遊戲獎勵系統。',
-                'marketAnalysis': '市場分析',
-                'drinkingWaterMarket': '飲用水市場',
-                'waterMarketDesc': '隨著人們健康意識的提升，對天然飲用泉水的需求持續增長。香港作為國際化大都市，飲用泉水市場規模龐大，且消費者對高品質、創新性產品接受度較高，為"東江泉"進入香港市場提供了廣闊空間。',
-                'web3Application': 'Web3與區塊鏈應用',
-                'web3ApplicationDesc': 'Web3和區塊鏈技術在各行業的應用逐漸深入，消費者對具有區塊鏈屬性的產品興趣日益濃厚。將區塊鏈技術應用於飲用泉水領域，不僅能提升產品的溯源性和安全性，還能為消費者帶來全新的消費體驗，具有較大的市場潛力。',
-                'projectHighlights': '專案亮點',
-                'innovativeProduct': '創新產品模式',
-                'innovativeProductDesc': '"東江泉"打造全球首款融合Web3區塊鏈生態系統的天然飲用泉水，通過區塊鏈技術實現產品溯源、防偽，以及用戶激勵等功能，為消費者提供更安全、透明的消費環境。',
-                'industryIntegration': '多元化產業融合',
-                'industryIntegrationDesc': '整合旅遊、娛樂等產業資源，推出東江泉尋源生態遊和冠名演唱會等活動，為消費者打造全方位的品牌體驗，提升品牌粘性。',
-                'incentiveMechanism': '創新激勵機制',
-                'incentiveMechanismDesc': '開發區塊鏈生態遊戲獎勵系統，用戶可通過參與遊戲獲得獎勵，增加用戶參與度和品牌互動性。',
-                'joinPartnership': '共創美好未來！',
-                'anniversary': '週年里程碑',
-                'waterSupplyAnniversary': '東江水供港60週年紀念',
-                'brandFirstYear': '品牌元年',
-                'enterHongKong': '東江泉正式進入香港市場',
-                'unlimitedPossibilities': '無限可能',
-                'createBrilliance': '與您共同開創品牌輝煌',
-                'contactUsNow': '立即聯絡我們',
-                'contactUs': '聯絡我們',
-                'contactInfo': '聯絡信息',
-                'companyName': '公司名稱',
-                'address': '地址',
-                'phone': '電話',
-                'email': '電子郵件',
-                'website': '網站',
-                'wholesale': '批發團購',
-                'orderForm': '訂購表單',
-                'dunhuaProduct': '敦華出品',
-                'sloganFooter': '一脉相連 . 飲水思源',
-                'storyWater': '做一瓶有故事的好泉水',
-                'copyright': '東江泉 © 版權所有'
-            },
-            'zh-CN': {
-                'home': '主页',
-                'about': '关于我们',
-                'products': '产品展示',
-                'brandStory': '品牌故事',
-                'partnership': '合伙招募',
-                'contact': '联系我们',
-                'mainTitle': '东江泉 饮用天然泉水官网',
-                'slogan1': '致力打造全球首款',
-                'slogan2': 'WEB3生态应用RWA资产饮用天然泉水',
-                'learnMore': '了解更多',
-                'celebration': '纪念东江水供港60周年',
-                '精心打造': '2025精心打造',
-                '有故事的水': '一瓶有故事的水',
-                'dunhuaGroup': '敦华集团',
-                'launchProduct': '推出「东江泉」饮用天然泉水',
-                'pureSource': '纯净水源',
-                'pureSourceDesc': '来自地下280米花岗岩裂缝',
-                'natural': '天然健康',
-                'naturalDesc': '富含多种人体所需矿物质',
-                'web3': 'Web3创新',
-                'web3Desc': '全球首款区块链生态泉水',
-                'waterSourceEco': '水源地周边生态',
-                'danxiaCloud': '会昌丹霞云海似仙境',
-                'stoneLake': '石壁坑水库风光',
-                'stoneLakeDesc': '石壁坑水库波光粼粼，蓝天白云与澄净湖水交相辉映，构成一幅绿色生态山水画卷。',
-                'surroundingEco': '水源地周边生态环境',
-                'surroundingEcoDesc': '未受污染的自然环境，确保水源的纯净与天然。',
-                'relatedCert': '相关证明文件',
-                'qualificationDocs': '相关资质文件',
-                'productShowcase': '产品展示',
-                'childhoodMemories': '源自家乡的甘甜回忆',
-                'storyParagraph1': '在中国南方的江西赣南，有一处被誉为大自然恩赐的珍宝——东江源头的泉水。这里的泉水自古以来就被当地人所珍视，其清冽甘甜的味道承载着无数人的思乡情怀。',
-                'storyParagraph2': '对于香港人而言，这份源自故乡的东江水更是一种熟悉的滋味，唤起了许多温馨的回忆。东江泉品牌正是为了将这份纯净的泉水与浓厚的乡愁带给更多人而诞生的。',
-                'storyParagraph3': '让我们一起走进东江泉的品牌故事，感受这份来自故乡的纯粹之美。',
-                'sourceOfSpring': '东江泉的源头',
-                'naturalGift': '大自然的珍稀馈赠',
-                'geologicalWonder': '地质奇迹',
-                'geologicalWonderDesc': '东江泉的水源来自地下280米的花岗岩裂缝，经过漫长的地质过滤，形成了独特的矿物质成分。',
-                'naturalPurification': '天然净化',
-                'naturalPurificationDesc': '泉水在地下岩层中缓慢流动，自然过滤掉杂质，保留了丰富的矿物质，塑造出独特的口感。',
-                'springingToSurface': '涌出地表',
-                'springingToSurfaceDesc': '经过漫长的地下旅程，通过开采泉水最终涌出地表，形成了东江泉的取水点。',
-                'sourceConclusion': '这份来自大自然的珍稀馈赠，不仅滋润了当地的土地和人民，更成为了东江泉品牌的灵魂所在。每一滴东江水都蕴含着大自然的智慧和恩典，为饮用者带来纯净健康的体验。',
-                'founder': '品牌创始人',
-                'culturalAmbassador': '怀乡情深的文化使者',
-                'culturalHeritage': '文化底蕴深厚',
-                'culturalHeritageDesc': '朱琴敦华集团CEO，在文化品牌演艺行业拥有超过三十年的丰富经验，培养了他独特的艺术眼光和文化素养。',
-                'homesickness': '乡愁情结浓厚',
-                'homesicknessDesc': '身在繁华的粤港澳大湾区，朱琴心中始终牵挂着家乡的自然之美，这份思乡之情成为了创立东江泉品牌的动力。',
-                'senseOfMission': '使命感驱动',
-                'senseOfMissionDesc': '朱琴希望通过东江泉品牌，将故乡的清新回忆带给更多人，传递「饮水思源」的理念，唤起人们对家乡的感恩之情。',
-                'founderConclusion': '朱琴的人生经历和文化积淀，为东江泉品牌注入了深厚的文化内涵和情感底蕴。他不仅是一位成功的企业家，更是一位以水为媒介，传递文化和情感的使者。',
-                'qualityInsistence': '品质坚持',
-                'perfectionism': '追求极致的完美主义',
-                'strictSourceSelection': '严格选源',
-                'strictSourceSelectionDesc': '东江泉坚持只选用最纯净的水源，确保每一滴水都来自深层岩层，经过天然过滤，保证水质的纯净和矿物质的均衡。',
-                'professionalTesting': '专业检测',
-                'professionalTestingDesc': '东江泉经过严格的专业检测，不仅获得香港检测部门的认可，更申请了STC「正」字认证标签，为消费者提供最高品质保证。',
-                'internationalStandards': '国际标准',
-                'internationalStandardsDesc': '东江泉申请了国际条形码，产品质量符合国际标准，为进军国际市场奠定了坚实基础，让更多人能品尝到这份来自中国的纯净泉水。',
-                'qualityConclusion': '朱总对品质的执着追求，体现在东江泉产品的每一个细节中。从水源选择到生产过程，再到包装设计，每一步都力求完美，只为将最纯净、最健康的泉水呈现给消费者。',
-                'culturalConnotation': '文化内涵',
-                'philosophy': '饮水思源-生活哲学',
-                'gratitude': '感恩之心',
-                'gratitudeDesc': '东江泉提醒我们要懂得感恩，珍惜生活中的每一滴水、每一份恩情。',
-                'neverForgetRoots': '不忘本源',
-                'neverForgetRootsDesc': '品牌鼓励人们在成功时不忘记自己的根源，时刻怀着对家乡的思念和感激。',
-                'giveBackToSociety': '回馈社会',
-                'giveBackToSocietyDesc': '东江泉倡导将个人的成功转化为回馈社会的力量，为家乡和社会做出贡献。',
-                'culturalConclusion': '东江泉不仅是一个水品牌，更是一种生活态度和文化理念的传递者。通过每一瓶水，品牌希望唤起人们对生活的深层思考，培养感恩、思源、回馈的人生观。这种文化内涵使得东江泉成为了一个具有深厚文化底蕴的品牌，为消费者带来的不仅是纯净的水，更是一种生活的智慧。',
-                'healthValue': '健康价值',
-                'healthyWay': '纯净水源的养生之道',
-                'mineralContent': '矿物质含量',
-                'mineral': '矿物质',
-                'benefits': '健康益处',
-                'calciumBenefit': '强健骨骼，预防骨质疏松',
-                'magnesiumBenefit': '调节神经系统，改善睡眠质量',
-                'potassiumBenefit': '平衡体内电解质，维护心脏健康',
-                'siliconBenefit': '促进胶原蛋白生成，维持皮肤弹性',
-                'healthConclusion1': '东江泉不仅仅是一种解渴饮品，更是一种天然的养生之水。源自280米深的花岗岩裂缝，东江泉富含多种人体所需的矿物质元素，能够为身体带来全方位的健康滋养。长期饮用东江泉，不仅能够补充身体所需的矿物质，还能帮助调节身体机能，提升整体健康水平。',
-                'healthConclusion2': '此外，东江泉的纯净度极高，不含任何有害物质，是孕妇、儿童和老年人的理想饮用水选择。它的口感清甜怡人，不仅能够满足日常饮水需求，还可以用于泡茶、煮粥，将健康融入生活的方方面面。',
-                'aboutUs': '关于我们',
-                'dunhuaGroupFull': '敦华集团',
-                'digitalPioneer': '数.字.文.创.先.行.者',
-                'dunhuaDesc': '敦华集团旗下拥有多家专业子公司，业务覆盖香港、深圳、北京、赣州等地，形成协同发展的产业格局。',
-                'dunhuaWebsite': '敦华官网',
-                'groupBrands': '集团控股旗下部分品牌',
-                'partnershipRecruitment': '合伙招募',
-                'web3Partner': '东江泉WEB3合伙人',
-                'limitedQuantity': '限量9999份',
-                'detailsNetwork': '详情网络：',
-                'tokenStandard': '代币标准：',
-                'quantity': '数量：',
-                'contractAddress': '合约地址：',
-                'partnershipDesc': '敦华集团2025年精心打造"东江泉"饮用天然泉水品牌，创新性地将其与Web3区块链技术相结合，致力构建全球首个Web3生态区块链饮用天然泉水体系。同时，整合集团旗下江西朱坊康养小镇旅游资源，推出东江泉寻源生态游，并通过举办明星艺人参与的东江泉演唱会，提升品牌影响力。现面向市场招募WEB3合伙人，以开拓香港市场，并开发区块链生态游戏奖励系统。',
-                'marketAnalysis': '市场分析',
-                'drinkingWaterMarket': '饮用水市场',
-                'waterMarketDesc': '随着人们健康意识的提升，对天然饮用泉水的需求持续增长。香港作为国际化大都市，饮用泉水市场规模庞大，且消费者对高品质、创新性产品接受度较高，为"东江泉"进入香港市场提供了广阔空间。',
-                'web3Application': 'Web3与区块链应用',
-                'web3ApplicationDesc': 'Web3和区块链技术在各行业的应用逐渐深入，消费者对具有区块链属性的产品兴趣日益浓厚。将区块链技术应用于饮用泉水领域，不仅能提升产品的溯源性和安全性，还能为消费者带来全新的消费体验，具有较大的市场潜力。',
-                'projectHighlights': '项目亮点',
-                'innovativeProduct': '创新产品模式',
-                'innovativeProductDesc': '"东江泉"打造全球首款融合Web3区块链生态系统的天然饮用泉水，通过区块链技术实现产品溯源、防伪，以及用户激励等功能，为消费者提供更安全、透明的消费环境。',
-                'industryIntegration': '多元化产业融合',
-                'industryIntegrationDesc': '整合旅游、娱乐等产业资源，推出东江泉寻源生态游和冠名演唱会等活动，为消费者打造全方位的品牌体验，提升品牌粘性。',
-                'incentiveMechanism': '创新激励机制',
-                'incentiveMechanismDesc': '开发区块链生态游戏奖励系统，用户可通过参与游戏获得奖励，增加用户参与度和品牌互动性。',
-                'joinPartnership': '共创美好未来！',
-                'anniversary': '周年里程碑',
-                'waterSupplyAnniversary': '东江水供港60周年纪念',
-                'brandFirstYear': '品牌元年',
-                'enterHongKong': '东江泉正式进入香港市场',
-                'unlimitedPossibilities': '无限可能',
-                'createBrilliance': '与您共同开创品牌辉煌',
-                'contactUsNow': '立即联系我们',
-                'contactUs': '联系我们',
-                'contactInfo': '联系信息',
-                'companyName': '公司名称',
-                'address': '地址',
-                'phone': '电话',
-                'email': '电子邮件',
-                'website': '网站',
-                'wholesale': '批发团购',
-                'orderForm': '订购表单',
-                'dunhuaProduct': '敦华出品',
-                'sloganFooter': '一脉相连 . 饮水思源',
-                'storyWater': '做一瓶有故事的好泉水',
-                'copyright': '东江泉 © 版权所有'
-            },
-            'en': {
-                'home': 'Home',
-                'about': 'About Us',
-                'products': 'Products',
-                'brandStory': 'Brand Story',
-                'partnership': 'Partnership',
-                'contact': 'Contact',
-                'mainTitle': 'Dongjiang Spring - Natural Spring Water Official Website',
-                'slogan1': 'Committed to creating the world\'s first',
-                'slogan2': 'WEB3 Ecosystem Application RWA Asset Natural Spring Water',
-                'learnMore': 'Learn More',
-                'celebration': 'Commemorating 60th Anniversary of Dongjiang Water Supply to Hong Kong',
-                '精心打造': 'Exquisitely Crafted in 2025',
-                '有故事的水': 'A Bottle of Water with a Story',
-                'dunhuaGroup': 'Dunhua Group',
-                'launchProduct': 'Launching "Dongjiang Spring" Natural Spring Water',
-                'pureSource': 'Pure Water Source',
-                'pureSourceDesc': 'From 280m underground granite fractures',
-                'natural': 'Natural & Healthy',
-                'naturalDesc': 'Rich in various essential minerals',
-                'web3': 'Web3 Innovation',
-                'web3Desc': 'World\'s first blockchain ecological spring water',
-                'waterSourceEco': 'Ecology Around Water Source',
-                'danxiaCloud': 'Huichang Danxia Cloud Sea Like Fairyland',
-                'stoneLake': 'Shibikeng Reservoir Scenery',
-                'stoneLakeDesc': 'Shibikeng Reservoir shimmers with粼粼 waves, where blue sky, white clouds and clear lake water reflect each other, forming a green ecological landscape painting.',
-                'surroundingEco': 'Ecological Environment Around Water Source',
-                'surroundingEcoDesc': 'Unpolluted natural environment ensures the purity and naturalness of the water source.',
-                'relatedCert': 'Related Certificates',
-                'qualificationDocs': 'Related Qualification Documents',
-                'productShowcase': 'Product Showcase',
-                'childhoodMemories': 'Sweet Memories from Hometown',
-                'storyParagraph1': 'In southern China\'s Ganzhou, Jiangxi Province, there is a treasure blessed by nature - the spring water from the source of Dongjiang River. This spring water has been cherished by locals since ancient times, and its clear and sweet taste carries countless people\'s nostalgia.',
-                'storyParagraph2': 'For Hong Kong people, this Dongjiang water from their hometown is a familiar taste that evokes many warm memories. The Dongjiang Spring brand was born to bring this pure spring water and strong nostalgia to more people.',
-                'storyParagraph3': 'Let us walk into the brand story of Dongjiang Spring and feel the pure beauty from our hometown.',
-                'sourceOfSpring': 'The Source of Dongjiang Spring',
-                'naturalGift': 'A Rare Gift from Nature',
-                'geologicalWonder': 'Geological Miracle',
-                'geologicalWonderDesc': 'The water source of Dongjiang Spring comes from 280 meters underground granite fractures. After long geological filtration, it forms unique mineral components.',
-                'naturalPurification': 'Natural Purification',
-                'naturalPurificationDesc': 'The spring water flows slowly in underground rock formations, naturally filtering out impurities while retaining rich minerals, creating a unique taste.',
-                'springingToSurface': 'Springing to the Surface',
-                'springingToSurfaceDesc': 'After a long underground journey, the spring water finally gushes out to the surface through mining, forming the water intake point of Dongjiang Spring.',
-                'sourceConclusion': 'This rare gift from nature not only nourishes the local land and people, but also becomes the soul of the Dongjiang Spring brand. Every drop of Dongjiang Spring water contains the wisdom and grace of nature, bringing a pure and healthy experience to drinkers.',
-                'founder': 'Brand Founder',
-                'culturalAmbassador': 'Cultural Ambassador with Deep Hometown Feelings',
-                'culturalHeritage': 'Rich Cultural Heritage',
-                'culturalHeritageDesc': 'Zhu Qin, CEO of Dunhua Group, has over 30 years of rich experience in the cultural brand and performing arts industry, cultivating his unique artistic vision and cultural literacy.',
-                'homesickness': 'Strong Nostalgia',
-                'homesicknessDesc': 'Living in the bustling Guangdong-Hong Kong-Macau Greater Bay Area, Zhu Qin always cares about the natural beauty of his hometown. This homesickness has become the driving force behind the establishment of the Dongjiang Spring brand.',
-                'senseOfMission': 'Mission-Driven',
-                'senseOfMissionDesc': 'Zhu Qin hopes that through the Dongjiang Spring brand, he can bring the fresh memories of his hometown to more people, convey the concept of "when drinking water, think of its source", and arouse people\'s gratitude to their hometown.',
-                'founderConclusion': 'Zhu Qin\'s life experience and cultural accumulation have injected profound cultural connotation and emotional heritage into the Dongjiang Spring brand. He is not only a successful entrepreneur, but also a messenger who conveys culture and emotions through water as a medium.',
-                'qualityInsistence': 'Quality Insistence',
-                'perfectionism': 'Pursuit of Ultimate Perfectionism',
-                'strictSourceSelection': 'Strict Source Selection',
-                'strictSourceSelectionDesc': 'Dongjiang Spring insists on using only the purest water sources, ensuring that every drop of water comes from deep rock formations,经过 natural filtration to ensure the purity of water quality and the balance of minerals.',
-                'professionalTesting': 'Professional Testing',
-                'professionalTestingDesc': 'Dongjiang Spring has undergone strict professional testing, not only obtaining recognition from Hong Kong testing authorities, but also applying for the STC "Zheng" certification label to provide consumers with the highest quality assurance.',
-                'internationalStandards': 'International Standards',
-                'internationalStandardsDesc': 'Dongjiang Spring has applied for an international barcode, and its product quality meets international standards, laying a solid foundation for entering the international market and allowing more people to taste this pure spring water from China.',
-                'qualityConclusion': 'Mr. Zhu\'s persistent pursuit of quality is reflected in every detail of Dongjiang Spring products. From water source selection to production process, and then to packaging design, every step strives for perfection, just to present the purest and healthiest spring water to consumers.',
-                'culturalConnotation': 'Cultural Connotation',
-                'philosophy': 'Drinking Water and Thinking of Its Source - Life Philosophy',
-                'gratitude': 'Gratitude',
-                'gratitudeDesc': 'Dongjiang Spring reminds us to be grateful and cherish every drop of water and every kindness in life.',
-                'neverForgetRoots': 'Never Forget One\'s Roots',
-                'neverForgetRootsDesc': 'The brand encourages people not to forget their roots when successful, and always cherish the memory and gratitude to their hometown.',
-                'giveBackToSociety': 'Giving Back to Society',
-                'giveBackToSocietyDesc': 'Dongjiang Spring advocates transforming personal success into strength to give back to society and make contributions to hometown and society.',
-                'culturalConclusion': 'Dongjiang Spring is not only a water brand, but also a disseminator of life attitude and cultural philosophy. Through each bottle of water, the brand hopes to arouse people\'s in-depth thinking about life and cultivate a outlook on life of gratitude, remembering the source, and giving back. This cultural connotation makes Dongjiang Spring a brand with profound cultural heritage, bringing consumers not only pure water, but also the wisdom of life.',
-                'healthValue': 'Health Value',
-                'healthyWay': 'Health Preservation from Pure Water Source',
-                'mineralContent': 'Mineral Content',
-                'mineral': 'Mineral',
-                'benefits': 'Health Benefits',
-                'calciumBenefit': 'Strengthens bones, prevents osteoporosis',
-                'magnesiumBenefit': 'Regulates nervous system, improves sleep quality',
-                'potassiumBenefit': 'Balances electrolytes, maintains heart health',
-                'siliconBenefit': 'Promotes collagen production, maintains skin elasticity',
-                'healthConclusion1': 'Dongjiang Spring is not just a thirst-quenching drink, but also a natural health-preserving water. Originating from 280 meters deep granite fractures, Dongjiang Spring is rich in various mineral elements needed by the human body, which can bring comprehensive health nourishment to the body. Drinking Dongjiang Spring for a long time can not only supplement the minerals needed by the body, but also help regulate body functions and improve overall health.',
-                'healthConclusion2': 'In addition, Dongjiang Spring has extremely high purity and does not contain any harmful substances, making it an ideal drinking water choice for pregnant women, children and the elderly. Its sweet and pleasant taste can not only meet daily drinking needs, but also be used for making tea and porridge, integrating health into all aspects of life.',
-                'aboutUs': 'About Us',
-                'dunhuaGroupFull': 'Dunhua Group',
-                'digitalPioneer': 'Pioneer in Digital Culture and Creativity',
-                'dunhuaDesc': 'Dunhua Group has several professional subsidiaries, with businesses covering Hong Kong, Shenzhen, Beijing, Ganzhou and other places, forming a synergistic industrial pattern.',
-                'dunhuaWebsite': 'Dunhua Official Website',
-                'groupBrands': 'Some Brands Under Group Holdings',
-                'partnershipRecruitment': 'Partnership Recruitment',
-                'web3Partner': 'Dongjiang Spring WEB3 Partner',
-                'limitedQuantity': 'Limited to 9999 copies',
-                'detailsNetwork': 'Details Network:',
-                'tokenStandard': 'Token Standard:',
-                'quantity': 'Quantity:',
-                'contractAddress': 'Contract Address:',
-                'partnershipDesc': 'Dunhua Group meticulously created the "Dongjiang Spring" natural spring water brand in 2025, innovatively combining it with Web3 blockchain technology, committed to building the world\'s first Web3 ecological blockchain natural spring water system. At the same time, it integrates the tourism resources of Jiangxi Zhufang Health and Wellness Town under the group, launches Dongjiang Spring source-seeking eco-tourism, and enhances brand influence by holding Dongjiang Spring concerts with celebrity participation. Now it is recruiting WEB3 partners to explore the Hong Kong market and develop a blockchain ecological game reward system.',
-                'marketAnalysis': 'Market Analysis',
-                'drinkingWaterMarket': 'Drinking Water Market',
-                'waterMarketDesc': 'With the improvement of people\'s health awareness, the demand for natural spring water continues to grow. As an international metropolis, Hong Kong has a large market scale for drinking spring water, and consumers have a high acceptance of high-quality and innovative products, providing a broad space for "Dongjiang Spring" to enter the Hong Kong market.',
-                'web3Application': 'Web3 and Blockchain Applications',
-                'web3ApplicationDesc': 'The application of Web3 and blockchain technology in various industries is gradually deepening, and consumers are increasingly interested in products with blockchain attributes. Applying blockchain technology to the field of drinking spring water can not only improve the traceability and safety of products, but also bring consumers a new consumption experience, with great market potential.',
-                'projectHighlights': 'Project Highlights',
-                'innovativeProduct': 'Innovative Product Model',
-                'innovativeProductDesc': '"Dongjiang Spring" creates the world\'s first natural spring water integrating Web3 blockchain ecosystem, realizing product traceability, anti-counterfeiting, and user incentives through blockchain technology, providing consumers with a safer and more transparent consumption environment.',
-                'industryIntegration': 'Diversified Industry Integration',
-                'industryIntegrationDesc': 'Integrate tourism, entertainment and other industrial resources, launch Dongjiang Spring source-seeking eco-tourism and named concerts, create a comprehensive brand experience for consumers, and enhance brand stickiness.',
-                'incentiveMechanism': 'Innovative Incentive Mechanism',
-                'incentiveMechanismDesc': 'Develop a blockchain ecological game reward system, allowing users to obtain rewards by participating in games, increasing user participation and brand interaction.',
-                'joinPartnership': 'Create a Better Future Together!',
-                'anniversary': 'Anniversary Milestone',
-                'waterSupplyAnniversary': '60th Anniversary of Dongjiang Water Supply to Hong Kong',
-                'brandFirstYear': 'Brand Inaugural Year',
-                'enterHongKong': 'Dongjiang Spring officially enters Hong Kong market',
-                'unlimitedPossibilities': 'Unlimited Possibilities',
-                'createBrilliance': 'Create brand brilliance with you',
-                'contactUsNow': 'Contact Us Now',
-                'contactUs': 'Contact Us',
-                'contactInfo': 'Contact Information',
-                'companyName': 'Company Name',
-                'address': 'Address',
-                'phone': 'Phone',
-                'email': 'Email',
-                'website': 'Website',
-                'wholesale': 'Wholesale & Group Purchase',
-                'orderForm': 'Order Form',
-                'dunhuaProduct': 'Produced by Dunhua',
-                'sloganFooter': 'Connected by a Single Thread . When Drinking Water, Think of Its Source',
-                'storyWater': 'Making a Good Bottle of Water with a Story',
-                'copyright': 'Dongjiang Spring © All Rights Reserved'
+        // 语言切换功能实现
+        document.addEventListener('DOMContentLoaded', function() {
+            // 定义各语言文本内容
+            const translations = {
+                'zh-Hant': {
+                    'home': '主頁',
+                    'about': '關於我們',
+                    'products': '產品展示',
+                    'brandStory': '品牌故事',
+                    'partnership': '合夥招募',
+                    'contact': '聯絡我們',
+                    'mainTitle': '東江泉',
+                    'slogan1': '致力打造全球首款',
+                    'slogan2': 'WEB3 生態應用"RWA"資產飲用天然泉水',
+                    'learnMore': '了解更多',
+                    'celebration': '紀 . 念 . 東 . 江 . 水 . 供 . 港 . 60 . 週 . 年',
+                    '精心打造': '2025精心打造',
+                    '有故事的水': '一瓶有故事的水',
+                    'dunhuaGroup': '敦華集團出品',
+                    'launchProduct': '東江泉·飲用天然泉水，該產品源自贛南東江源頭和贛江源頭的自然保護區交匯處，從深層花崗岩裂隙中抽取，含鍶、偏矽酸的天然泉水，甘甜可口、綿柔順滑。已經獲得香港優質“正”印檢測認證，是飲用解渴的佳品之選，是泡茶、 煲湯和煮飯的黃金搭檔。',
+                    'pureSource': '純淨水源',
+                    'pureSourceDesc': '來自地下280米花崗岩裂縫',
+                    'natural': '天然健康',
+                    'naturalDesc': '富含多種人體所需礦物質',
+                    'web3': 'Web3創新',
+                    'web3Desc': '全球首款區塊鏈生態泉水',
+                    'waterSourceEco': '水源地週邊生態',
+                    'danxiaCloud': '水源地週邊生態',
+                    'stoneLake': '會昌丹霞雲海似仙境',
+                    'stoneLakeDesc': '石壁坑水庫波光粼粼，藍天白雲與澄淨湖水交相輝映，構成一幅綠色生態山水畫卷。',
+                    'surroundingEco': '石壁坑水庫波光粼粼，藍天白雲與湖水交相輝映構成一幅綠色生態山水畫卷。',
+                    'surroundingEcoDesc': '未受污染的自然環境，確保水源的純淨與天然。',
+                    'relatedCert': '相關證明文件',
+                    'qualificationDocs': '相關資質文件',
+                    'productShowcase': '產品展示',
+                    'groupBrands': '集團控股旗下部分品牌',
+                    'childhoodMemories': '源自家鄉的甘甜回憶',
+                    'storyParagraph1': '在中國南方的江西贛南，有一處被譽為大自然恩賜的珍寶——東江源頭的泉水。這裡的泉水自古以來就被當地人所珍視,其清冽甘甜的味道承載著無數人的思鄉情懷。',
+                    'storyParagraph2': '對於香港人而言,這份源自故鄉的東江水更是一種熟悉的滋味,喚起了許多溫馨的回憶。東江泉品牌正是為了將這份純淨的泉水與濃厚的鄉愁帶給更多人而誕生的。',
+                    'storyParagraph3': '讓我們一起走進東江泉的品牌故事,感受這份來自故鄉的純粹之美。',
+                    'sourceOfSpring': '東江泉的源頭',
+                    'naturalGift': '大自然的珍稀饋贈',
+                    'geologicalWonder': '地質奇蹟',
+                    'geologicalWonderDesc': '東江泉的水源來自地下280米的花崗岩裂縫，經過漫長的地質過濾，形成了獨特的礦物質成分。',
+                    'naturalPurification': '天然淨化',
+                    'naturalPurificationDesc': '泉水在地下岩層中緩慢流動，自然過濾掉雜質，保留了豐富的礦物質，塑造出獨特的口感。',
+                    'springingToSurface': '湧出地表',
+                    'springingToSurfaceDesc': '經過漫長的地下旅程，通過開採泉水最終湧出地表，形成了東江泉的取水點。',
+                    'sourceConclusion': '這份來自大自然的珍稀饋贈，不僅滋潤了當地的土地和人民，更成為了東江泉品牌的靈魂所在。每一滴東江泉水都蘊含著大自然的智慧和恩典，為飲用者帶來純淨健康的體驗。',
+                    'founder': '品牌創始人',
+                    'culturalAmbassador': '懷鄉情深的文化使者',
+                    'culturalHeritage': '文化底蘊深厚',
+                    'culturalHeritageDesc': '朱琴敦華集團CEO，在文化品牌演藝行業擁有超過三十年的豐富經驗，培養了他獨特的藝術眼光和文化素養。',
+                    'homesickness': '鄉愁情結濃厚',
+                    'homesicknessDesc': '身在繁華的粵港澳大灣區，朱琴心中始終牽掛著家鄉的自然之美，這份思鄉之情成為了創立東江泉品牌的動力。',
+                    'senseOfMission': '使命感驅動',
+                    'senseOfMissionDesc': '朱琴希望通過東江泉品牌，將故鄉的清新回憶帶給更多人，傳遞「飲水思源」的理念，喚起人們對家鄉的感恩之情。',
+                    'founderConclusion': '朱琴的人生經歷和文化積澱，為東江泉品牌注入了深厚的文化內涵和情感底蘊。他不僅是一位成功的企業家，更是一位以水為媒介，傳遞文化和情感的使者。',
+                    'qualityInsistence': '品質堅持',
+                    'perfectionism': '追求極致的完美主義',
+                    'strictSourceSelection': '嚴格選源',
+                    'strictSourceSelectionDesc': '東江泉堅持只選用最純淨的水源，確保每一滴水都來自深層岩層，經過天然過濾，保證水質的純淨和礦物質的均衡。',
+                    'professionalTesting': '專業檢測',
+                    'professionalTestingDesc': '東江泉經過嚴格的專業檢測，不僅獲得香港檢測部門的認可，更申請了STC「正」字認證標籤，為消費者提供最高品質保證。',
+                    'internationalStandards': '國際標準',
+                    'internationalStandardsDesc': '東江泉申請了國際條形碼，產品質量符合國際標準，為進軍國際市場奠定了堅實基礎，讓更多人能品嚐到這份來自中國的純淨泉水。',
+                    'partnershipProgram': '合夥招募計劃',
+                    'joinUs': '加入我們，共創輝煌',
+                    'partnershipDesc': '東江泉誠邀各地有識之士加入我們的合作網絡，共同開拓市場，共享品牌價值。無論您是零售商、批發商還是企業客戶，我們都能為您提供有競爭力的合作方案。',
+                    'competitivePrice': '有競爭力的價格體系',
+                    'marketSupport': '全方位市場支持',
+                    'brandAdvantage': '強大的品牌優勢',
+                    'innovativeModel': '創新的Web3商業模式',
+                    'applyNow': '立即申請',
+                    'contactUs': '聯絡我們',
+                    'yourName': '您的姓名',
+                    'email': '電子郵箱',
+                    'phone': '聯絡電話',
+                    'message': '留言內容',
+                    'sendMessage': '發送訊息',
+                    'contactInfo': '聯絡資訊',
+                    'address': '香港中環皇后大道中123號東江大廈15樓',
+                    'contactPhone': '+852 1234 5678',
+                    'contactEmail': 'info@dongjiangspring.com',
+                    'businessHours': '周一至周五: 9:00 - 18:00',
+                    'followUs': '關注我們',
+                    'aboutCompany': '關於公司',
+                    'companyProfile': '公司簡介',
+                    'developmentHistory': '發展歷程',
+                    'honors': '榮譽資質',
+                    'news': '新聞動態',
+                    'productCenter': '產品中心',
+                    'productSeries': '產品系列',
+                    'productAdvantage': '產品優勢',
+                    'science': '科學研究',
+                    'purchaseChannel': '購買渠道',
+                    'cooperation': '合作與支持',
+                    'joinPartnership': '加入合作',
+                    'faq': '常見問題',
+                    'feedback': '意見反饋',
+                    'technicalSupport': '技術支持',
+                    'legalInfo': '法律信息',
+                    'privacyPolicy': '隱私政策',
+                    'termsOfService': '服務條款',
+                    'copyright': '版權聲明',
+                    'disclaimer': '免責聲明',
+                    'copyrightText': '© 2025 東江泉飲用天然泉水 版權所有',
+                    'icpInfo': '商業登記號：12345678號-001'
+                },
+                'zh-CN': {
+                    'home': '主页',
+                    'about': '关于我们',
+                    'products': '产品展示',
+                    'brandStory': '品牌故事',
+                    'partnership': '合伙招募',
+                    'contact': '联系我们',
+                    'mainTitle': '东江泉',
+                    'slogan1': '致力打造全球首款',
+                    'slogan2': 'WEB3 生态应用"RWA"资产饮用天然泉水',
+                    'learnMore': '了解更多',
+                    'celebration': '纪 . 念 . 东 . 江 . 水 . 供 . 港 . 60 . 周 . 年',
+                    '精心打造': '2025精心打造',
+                    '有故事的水': '一瓶有故事的水',
+                    'dunhuaGroup': '敦华集团出品',
+                    'launchProduct': '东江泉·饮用天然泉水，该产品源自赣南东江源头和赣江源头的自然保护区交汇处，从深层花岗岩裂隙中抽取，含锶、偏硅酸的天然泉水，甘甜可口、绵柔顺滑。已经获得香港优质“正”印检测认证香港优质“正”印检测认证，是饮用解渴的佳品之选，是泡茶、 煲汤和煮饭的黄金搭档。',
+                    'pureSource': '纯净水源',
+                    'pureSourceDesc': '来自地下280米花岗岩裂缝',
+                    'natural': '天然健康',
+                    'naturalDesc': '富含多种人体所需矿物质',
+                    'web3': 'Web3创新',
+                    'web3Desc': '全球首款区块链生态泉水',
+                    'waterSourceEco': '水源地周边生态',
+                    'danxiaCloud': '水源地周边生态',
+                    'stoneLake': '会昌丹霞云海似仙境',
+                    'stoneLakeDesc': '石壁坑水库波光粼粼，蓝天白云与澄净湖水交相辉映，构成一幅绿色生态山水画卷。',
+                    'surroundingEco': '石壁坑水库波光粼粼，蓝天白云与湖水交相辉映构成一幅绿色生态山水画卷。',
+                    'surroundingEcoDesc': '未受污染的自然环境，确保水源的纯净与天然。',
+                    'relatedCert': '相关证明文件',
+                    'qualificationDocs': '相关资质文件',
+                    'productShowcase': '产品展示',
+                    'groupBrands': '集团控股旗下部分品牌',
+                    'childhoodMemories': '源自家乡的甘甜回忆',
+                    'storyParagraph1': '在中国南方的江西赣南，有一处被誉为大自然恩赐的珍宝——东江源头的泉水。这里的泉水自古以来就被当地人所珍视，其清冽甘甜的味道承载着无数人的思乡情怀。',
+                    'storyParagraph2': '对于香港人而言，这份源自故乡的东江水更是一种熟悉的滋味，唤起了许多温馨的回忆。东江泉品牌正是为了将这份纯净的泉水与浓厚的乡愁带给更多人而诞生的。',
+                    'storyParagraph3': '让我们一起走进东江泉的品牌故事，感受这份来自故乡的纯粹之美。',
+                    'sourceOfSpring': '东江泉的源头',
+                    'naturalGift': '大自然的珍稀馈赠',
+                    'geologicalWonder': '地质奇迹',
+                    'geologicalWonderDesc': '东江泉的水源来自地下280米的花岗岩裂缝，经过漫长的地质过滤，形成了独特的矿物质成分。',
+                    'naturalPurification': '天然净化',
+                    'naturalPurificationDesc': '泉水在地下岩层中缓慢流动，自然过滤掉杂质，保留了丰富的矿物质，塑造出独特的口感。',
+                    'springingToSurface': '涌出地表',
+                    'springingToSurfaceDesc': '经过漫长的地下旅程，通过开采泉水最终涌出地表，形成了东江泉的取水点。',
+                    'sourceConclusion': '这份来自大自然的珍稀馈赠，不仅滋润了当地的土地和人民，更成为了东江泉品牌的灵魂所在。每一滴东江泉水都蕴含着大自然的智慧和恩典，为饮用者带来纯净健康的体验。',
+                    'founder': '品牌创始人',
+                    'culturalAmbassador': '怀乡情深的文化使者',
+                    'culturalHeritage': '文化底蕴深厚',
+                    'culturalHeritageDesc': '朱琴敦华集团CEO，在文化品牌演艺行业拥有超过三十年的丰富经验，培养了他独特的艺术眼光和文化素养。',
+                    'homesickness': '乡愁情结浓厚',
+                    'homesicknessDesc': '身在繁华的粤港澳大湾区，朱琴心中始终牵挂着家乡的自然之美，这份思乡之情成为了创立东江泉品牌的动力。',
+                    'senseOfMission': '使命感驱动',
+                    'senseOfMissionDesc': '朱琴希望通过东江泉品牌，将故乡的清新回忆带给更多人，传递「饮水思源」的理念，唤起人们对家乡的感恩之情。',
+                    'founderConclusion': '朱琴的人生经历和文化积淀，为东江泉品牌注入了深厚的文化内涵和情感底蕴。他不仅是一位成功的企业家，更是一位以水为媒介，传递文化和情感的使者。',
+                    'qualityInsistence': '品质坚持',
+                    'perfectionism': '追求极致的完美主义',
+                    'strictSourceSelection': '严格选源',
+                    'strictSourceSelectionDesc': '东江泉坚持只选用最纯净的水源，确保每一滴水都来自深层岩层，经过天然过滤，保证水质的纯净和矿物质的均衡。',
+                    'professionalTesting': '专业检测',
+                    'professionalTestingDesc': '东江泉经过严格的专业检测，不仅获得香港检测部门的认可，更申请了STC「正」字认证标签，为消费者提供最高品质保证。',
+                    'internationalStandards': '国际标准',
+                    'internationalStandardsDesc': '东江泉申请了国际条形码，产品质量符合国际标准，为进军国际市场奠定了坚实基础，让更多人能品尝到这份来自中国的纯净泉水。',
+                    'partnershipProgram': '合伙招募计划',
+                    'joinUs': '加入我们，共创辉煌',
+                    'partnershipDesc': '东江泉诚邀各地有识之士加入我们的合作网络，共同开拓市场，共享品牌价值。无论您是零售商、批发商还是企业客户，我们都能为您提供有竞争力的合作方案。',
+                    'competitivePrice': '有竞争力的价格体系',
+                    'marketSupport': '全方位市场支持',
+                    'brandAdvantage': '强大的品牌优势',
+                    'innovativeModel': '创新的Web3商业模式',
+                    'applyNow': '立即申请',
+                    'contactUs': '联系我们',
+                    'yourName': '您的姓名',
+                    'email': '电子邮箱',
+                    'phone': '联络电话',
+                    'message': '留言内容',
+                    'sendMessage': '发送讯息',
+                    'contactInfo': '联络资讯',
+                    'address': '香港中环皇后大道中123号东江大厦15楼',
+                    'contactPhone': '+852 1234 5678',
+                    'contactEmail': 'info@dongjiangspring.com',
+                    'businessHours': '周一至周五: 9:00 - 18:00',
+                    'followUs': '关注我们',
+                    'aboutCompany': '关于公司',
+                    'companyProfile': '公司简介',
+                    'developmentHistory': '发展历程',
+                    'honors': '荣誉资质',
+                    'news': '新闻动态',
+                    'productCenter': '产品中心',
+                    'productSeries': '产品系列',
+                    'productAdvantage': '产品优势',
+                    'science': '科学研究',
+                    'purchaseChannel': '购买渠道',
+                    'cooperation': '合作与支持',
+                    'joinPartnership': '加入合作',
+                    'faq': '常见问题',
+                    'feedback': '意见反馈',
+                    'technicalSupport': '技术支持',
+                    'legalInfo': '法律信息',
+                    'privacyPolicy': '隐私政策',
+                    'termsOfService': '服务条款',
+                    'copyright': '版权声明',
+                    'disclaimer': '免责声明',
+                    'copyrightText': '© 2025 东江泉饮用天然泉水 版权所有',
+                    'icpInfo': '京ICP备12345678号-1'
+                },
+                'en': {
+                    'home': 'Home',
+                    'about': 'About Us',
+                    'products': 'Products',
+                    'brandStory': 'Brand Story',
+                    'partnership': 'Partnership',
+                    'contact': 'Contact',
+                    'mainTitle': 'Dongjiang Spring',
+                    'slogan1': 'Pioneering the world\'s first',
+                    'slogan2': 'WEB3 Ecosystem "RWA" Asset Natural Spring Water',
+                    'learnMore': 'Learn More',
+                    'celebration': 'Celebrating 60 Years of Dongjiang Water Supply to Hong Kong',
+                    '精心打造': 'Crafted with Excellence in 2025',
+                    '有故事的水': 'A Bottle of Water with a Story',
+                    'dunhuaGroup': 'Produced by Dunhua Group',
+                    'launchProduct': 'Dongjiang Spring·Natural Drinking Water originates from the intersection of the nature reserves at the sources of Ganzhou\'s Dongjiang and Ganjiang rivers. Extracted from deep granite fissures, this natural spring water contains strontium and metasilicic acid, offering a sweet, smooth taste. It has obtained Hong Kong\'s Quality "Zheng" Mark certification, making it an excellent choice for quenching thirst and a perfect partner for making tea, soups, and rice.',
+                    'pureSource': 'Pure Water Source',
+                    'pureSourceDesc': 'From 280m underground granite fractures',
+                    'natural': 'Natural & Healthy',
+                    'naturalDesc': 'Rich in various minerals essential to the human body',
+                    'web3': 'Web3 Innovation',
+                    'web3Desc': 'The world\'s first blockchain ecosystem spring water',
+                    'waterSourceEco': 'Ecosystem Around Water Source',
+                    'danxiaCloud': 'Ecosystem Around Water Source',
+                    'stoneLake': 'Huichang Danxia Cloud Sea Like a Fairyland',
+                    'stoneLakeDesc': 'Shibikeng Reservoir shimmers with clear water, where blue sky, white clouds and pure lake water reflect each other, forming a green ecological landscape painting.',
+                    'surroundingEco': 'Shibikeng Reservoir shimmers with clear water, where blue sky, white clouds and lake water reflect each other to form a green ecological landscape painting.',
+                    'surroundingEcoDesc': 'Unpolluted natural environment ensures the purity and natural quality of the water source.',
+                    'relatedCert': 'Related Certificates',
+                    'qualificationDocs': 'Relevant Qualification Documents',
+                    'productShowcase': 'Product Showcase',
+                    'groupBrands': 'Some Brands Under Group Holdings',
+                    'childhoodMemories': 'Sweet Memories from Hometown',
+                    'storyParagraph1': 'In southern China\'s Ganzhou, Jiangxi Province, there is a treasure blessed by nature - the spring water from the source of Dongjiang River. This spring water has been cherished by locals since ancient times, and its clear and sweet taste carries countless people\'s nostalgia.',
+                    'storyParagraph2': 'For Hong Kong people, this Dongjiang water from their hometown is a familiar taste that evokes many warm memories. The Dongjiang Spring brand was born to bring this pure spring water and deep nostalgia to more people.',
+                    'storyParagraph3': 'Let us explore the brand story of Dongjiang Spring and experience the pure beauty from our hometown.',
+                    'sourceOfSpring': 'The Source of Dongjiang Spring',
+                    'naturalGift': 'A Rare Gift from Nature',
+                    'geologicalWonder': 'Geological Miracle',
+                    'geologicalWonderDesc': 'The water source of Dongjiang Spring comes from 280 meters underground granite fractures, forming unique mineral compositions after long geological filtration.',
+                    'naturalPurification': 'Natural Purification',
+                    'naturalPurificationDesc': 'The spring water flows slowly through underground rock formations, naturally filtering out impurities while retaining rich minerals, creating a unique taste.',
+                    'springingToSurface': 'Emerging to the Surface',
+                    'springingToSurfaceDesc': 'After a long underground journey, the spring water finally gushes out to the surface through extraction, forming the water intake point of Dongjiang Spring.',
+                    'sourceConclusion': 'This rare gift from nature not only nourishes the local land and people, but also becomes the soul of the Dongjiang Spring brand. Every drop of Dongjiang Spring water contains the wisdom and grace of nature, bringing a pure and healthy experience to drinkers.',
+                    'founder': 'Brand Founder',
+                    'culturalAmbassador': 'Cultural Ambassador with Deep Hometown Feelings',
+                    'culturalHeritage': 'Rich Cultural Heritage',
+                    'culturalHeritageDesc': 'Zhu Qin, CEO of Dunhua Group, has over 30 years of rich experience in the cultural brand and performing arts industry, cultivating his unique artistic vision and cultural literacy.',
+                    'homesickness': 'Strong Nostalgia',
+                    'homesicknessDesc': 'Living in the bustling Guangdong-Hong Kong-Macau Greater Bay Area, Zhu Qin always cares about the natural beauty of his hometown. This homesickness became the driving force behind the establishment of the Dongjiang Spring brand.',
+                    'senseOfMission': 'Mission-Driven',
+                    'senseOfMissionDesc': 'Through the Dongjiang Spring brand, Zhu Qin hopes to bring the fresh memories of his hometown to more people, convey the concept of "when drinking water, remember its source", and arouse people\'s gratitude to their hometown.',
+                    'founderConclusion': 'Zhu Qin\'s life experience and cultural accumulation have injected profound cultural connotation and emotional heritage into the Dongjiang Spring brand. He is not only a successful entrepreneur, but also an envoy who conveys culture and emotions through water as a medium.',
+                    'qualityInsistence': 'Quality Commitment',
+                    'perfectionism': 'Pursuit of Ultimate Perfection',
+                    'strictSourceSelection': 'Strict Source Selection',
+                    'strictSourceSelectionDesc': 'Dongjiang Spring insists on using only the purest water sources, ensuring that every drop of water comes from deep rock formations, naturally filtered to guarantee water purity and balanced minerals.',
+                    'professionalTesting': 'Professional Testing',
+                    'professionalTestingDesc': 'Dongjiang Spring has undergone rigorous professional testing, not only obtaining recognition from Hong Kong testing authorities, but also applying for the STC "Zheng" certification label, providing consumers with the highest quality assurance.',
+                    'internationalStandards': 'International Standards',
+                    'internationalStandardsDesc': 'Dongjiang Spring has applied for an international barcode, and its product quality meets international standards, laying a solid foundation for entering the international market and allowing more people to taste this pure spring water from China.',
+                    'partnershipProgram': 'Partnership Recruitment Program',
+                    'joinUs': 'Join Us, Create Brilliance Together',
+                    'partnershipDesc': 'Dongjiang Spring sincerely invites like-minded individuals from all regions to join our cooperation network, jointly explore the market and share brand value. Whether you are a retailer, wholesaler or corporate client, we can provide you with competitive cooperation plans.',
+                    'competitivePrice': 'Competitive Price System',
+                    'marketSupport': 'Comprehensive Market Support',
+                    'brandAdvantage': 'Strong Brand Advantages',
+                    'innovativeModel': 'Innovative Web3 Business Model',
+                    'applyNow': 'Apply Now',
+                    'contactUs': 'Contact Us',
+                    'yourName': 'Your Name',
+                    'email': 'Email Address',
+                    'phone': 'Contact Phone',
+                    'message': 'Message Content',
+                    'sendMessage': 'Send Message',
+                    'contactInfo': 'Contact Information',
+                    'address': '15/F, Dongjiang Building, 123 Queen\'s Road Central, Hong Kong',
+                    'contactPhone': '+852 1234 5678',
+                    'contactEmail': 'info@dongjiangspring.com',
+                    'businessHours': 'Monday to Friday: 9:00 - 18:00',
+                    'followUs': 'Follow Us',
+                    'aboutCompany': 'About Company',
+                    'companyProfile': 'Company Profile',
+                    'developmentHistory': 'Development History',
+                    'honors': 'Honors & Qualifications',
+                    'news': 'News & Events',
+                    'productCenter': 'Product Center',
+                    'productSeries': 'Product Series',
+                    'productAdvantage': 'Product Advantages',
+                    'science': 'Scientific Research',
+                    'purchaseChannel': 'Purchase Channels',
+                    'cooperation': 'Cooperation & Support',
+                    'joinPartnership': 'Join Cooperation',
+                    'faq': 'Frequently Asked Questions',
+                    'feedback': 'Feedback',
+                    'technicalSupport': 'Technical Support',
+                    'legalInfo': 'Legal Information',
+                    'privacyPolicy': 'Privacy Policy',
+                    'termsOfService': 'Terms of Service',
+                    'copyright': 'Copyright Notice',
+                    'disclaimer': 'Disclaimer',
+                    'copyrightText': '© 2025 Dongjiang Spring Natural Drinking Water. All Rights Reserved.',
+                    'icpInfo': 'Beijing ICP No. 12345678-1'
+                }
+            };
+
+            // 语言切换函数
+            function switchLanguage(lang) {
+                // 更新页面语言属性
+                document.documentElement.lang = lang;
+                
+                // 更新所有带data-lang-key属性的元素文本
+                document.querySelectorAll('[data-lang-key]').forEach(element => {
+                    const key = element.getAttribute('data-lang-key');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.textContent = translations[lang][key];
+                    }
+                });
+                
+                // 更新语言按钮样式
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    if (btn.getAttribute('data-lang') === lang) {
+                        btn.classList.add('bg-primary', 'text-white');
+                        btn.classList.remove('hover:bg-gray-200');
+                    } else {
+                        btn.classList.remove('bg-primary', 'text-white');
+                        btn.classList.add('hover:bg-gray-200');
+                    }
+                });
             }
-        };
 
-        // 当前语言
-        let currentLang = 'zh-Hant';
+            // 为语言切换按钮添加事件监听器
+            document.querySelectorAll('.lang-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    switchLanguage(lang);
+                    // 保存用户语言偏好
+                    localStorage.setItem('preferredLanguage', lang);
+                });
+            });
 
-        // 语言切换函数
-        function changeLanguage(lang) {
-            if (lang === currentLang) return;
+            // 检查用户是否有保存的语言偏好
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang && translations[savedLang]) {
+                switchLanguage(savedLang);
+            }
+
+            // 移动端菜单切换
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
             
-            currentLang = lang;
-            
-            // 更新所有带data-lang-key的元素
-            document.querySelectorAll('[data-lang-key]').forEach(el => {
-                const key = el.getAttribute('data-lang-key');
-                if (translations[lang][key]) {
-                    el.textContent = translations[lang][key];
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // 导航栏滚动效果
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('py-2', 'shadow-lg');
+                    navbar.classList.remove('py-3', 'shadow-md');
+                } else {
+                    navbar.classList.add('py-3', 'shadow-md');
+                    navbar.classList.remove('py-2', 'shadow-lg');
                 }
             });
+
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    // 关闭移动菜单（如果打开）
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // 滚动显示动画
+            const fadeElements = document.querySelectorAll('.fade-in');
             
-            // 更新语言按钮样式
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                if (btn.getAttribute('data-lang') === lang) {
-                    btn.classList.add('</script></body></html>
+            const fadeInObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        fadeInObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            fadeElements.forEach(element => {
+                fadeInObserver.observe(element);
+            });
+
+            // 表单提交处理
+            const contactForm = document.querySelector('form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // 这里可以添加表单验证和提交逻辑
+                    alert('感谢您的留言，我们会尽快回复您！');
+                    contactForm.reset();
+                });
+            }
+        });
+    </script>
+
+</body></html>
