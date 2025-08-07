@@ -78,16 +78,6 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-            /* 新增图片容器样式，保持原始比例 */
-            .cert-img-container {
-                aspect-ratio: 4/3; /* 标准证件比例 */
-            }
-            .product-img-container {
-                aspect-ratio: 3/4; /* 产品图片比例 */
-            }
-            .brand-img-container {
-                aspect-ratio: 4/3; /* 品牌图片比例 */
-            }
         }
     </style>
     <!-- 引入Google字体 -->
@@ -227,10 +217,10 @@
                     
                     <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-custom">
                         <div class="img-container h-64">
-                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/97fcdf22f33d4b4fa628e626af5294c2~tplv-a9rns2rl98-image.image?rcl=202508051626536A6003EDC5D768488575&amp;rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754987217&amp;x-signature=dqRx8qfSxG0kiU4K%2F5NaDbI8RXg%3D" alt="石壁坑水庫風光">
+                            <img src="https://picsum.photos/id/135/600/400" alt="石壁坑水庫風光">
                         </div>
                         <div class="p-5">
-                            <h3 class="font-bold text-lg mb-2" data-lang-key="surroundingEco">石壁坑水庫風光</h3>
+                            <h3 class="font-bold text-lg mb-2" data-lang-key="surroundingEco">石壁坑水庫波光粼粼，藍天白雲與湖水交相輝映構成一幅綠色生態山水畫卷。</h3>
                             <p class="text-gray-600 text-sm">該水庫建成於1960年代，是東江流域重要的水利工程之一，不僅為下游地區提供飲用水源，還發揮著防洪、灌溉和水電發電等多種功能。水庫周邊植被茂密，水質長期保持在國家一類標準。</p>
                         </div>
                     </div>
@@ -243,37 +233,36 @@
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-12 text-primary" data-lang-key="relatedCert">相關證明文件</h2>
                 
-                <!-- 每行2张图片，保持原始比例 -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <!-- 10张证明文件图片 -->
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                    <!-- 10张证明文件图片 - 已优化为原始比例和视觉效果 -->
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-64">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/e23240864a084d42a6ddf9294f395e87~tplv-a9rns2rl98-image.image?rcl=20250805003559CD2805F464A310DC9077&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930159&amp;x-signature=LMLqWhdh5rdf3q61K2RkLlAPS%2BY%3D" alt="證明文件1">
                     </div>
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-64">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/5c3c6cf53277416184a80b0a286d650b~tplv-a9rns2rl98-image.image?rcl=20250805003610EC89844923C7EF37BF39&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930171&amp;x-signature=D%2BANWUTc40FMagMqvLuBKLYLjh4%3D" alt="證明文件2">
                     </div>
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-64">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/271d90a9b72d49a190df63db7cc5acb2~tplv-a9rns2rl98-image.image?rcl=2025080500362262F46B8DD208DBD44EDD&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930182&amp;x-signature=mKZCKStzFDDct2T%2BjQ9c%2BPd95Dg%3D" alt="證明文件3">
                     </div>
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-64">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/e312b03f16e34253977347b623935fe3~tplv-a9rns2rl98-image.image?rcl=202508050036357DA1522BC3DB1251BF67&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930195&amp;x-signature=6lULkHLiaLTizc%2BdmkbRkA1kFsU%3D" alt="證明文件4">
                     </div>
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-64">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/953f59228ffa45849eb61156340e907b~tplv-a9rns2rl98-image.image?rcl=20250805003646E485F5DF6DBB440415B0&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930206&amp;x-signature=JcrBOysxk0JpHxJbiQEvogPP4yQ%3D" alt="證明文件5">
                     </div>
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-64">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/0b3027abb6f8493796022ccc785c47b9~tplv-a9rns2rl98-image.image?rcl=20250805003656F3D9266D105F32D0F52B&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930217&amp;x-signature=rjvmpcIVSEMM44yCF9%2FjGZ7u6%2F4%3D" alt="證明文件6">
                     </div>
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-64">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/1d5072189b22422cadb2632f6027964d~tplv-a9rns2rl98-image.image?rcl=20250805003707F591526FB7217C4307CB&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930227&amp;x-signature=rlxRXkhn5TQKGkAVdVYa5orh0Dc%3D" alt="證明文件7">
                     </div>
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-64">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/0f6a499d954a45918a17aef944231312~tplv-a9rns2rl98-image.image?rcl=20250805003717FBB8D8CAA987B0335C52&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930238&amp;x-signature=FRvgCcaBn5M%2FDSUXPsSfco9zVMg%3D" alt="證明文件8">
                     </div>
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-64">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/4da2464a78cb4184b12cd60b167d9437~tplv-a9rns2rl98-image.image?rcl=202508050037289785DA4DE3FFF743BB34&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930248&amp;x-signature=4UMsvjhogQMZVRLOMvQMgf6Tuek%3D" alt="證明文件9">
                     </div>
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-64">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/5cea6619892d40c59ae4a7d90c73e4db~tplv-a9rns2rl98-image.image?rcl=202508050037375C1ACB03AEE19DE3E860&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930257&amp;x-signature=7k9igDSsrbCHrj5R1eTogPPWCdk%3D" alt="證明文件10">
                     </div>
                 </div>
@@ -285,25 +274,24 @@
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-12 text-primary" data-lang-key="qualificationDocs">相關資質文件</h2>
                 
-                <!-- 每行2张图片，保持原始比例 -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <!-- 6张资质文件图片 -->
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <!-- 6张资质文件图片 - 已优化为原始比例和视觉效果 -->
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-80">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/563e165f307c4e7b9ad468b49afbd31a~tplv-a9rns2rl98-image.image?rcl=20250805003806936EA586C5BC3BF0E2B5&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930288&amp;x-signature=W775b5hLCCjZvJlnKwa%2Bia688ik%3D" alt="資質文件1">
                     </div>
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-80">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/46e41860789d44d59ed2cd8a0b2c1807~tplv-a9rns2rl98-image.image?rcl=20250805003823C9E57D22A9532BD859B4&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930304&amp;x-signature=5CidfkDmAnHsV5EJCSWH7ket4%2F8%3D" alt="資質文件2">
                     </div>
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-80">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/b8d72adea10644349988322d3178826e~tplv-a9rns2rl98-image.image?rcl=20250805003837650DCE2863C40AD3E4E8&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930318&amp;x-signature=DWqoP%2Fokyjp%2Bbvr33hI5PSos29E%3D" alt="資質文件3">
                     </div>
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-80">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/5d8f931f0c304592b542087c9bfc15c4~tplv-a9rns2rl98-image.image?rcl=20250805003851C883BE6EF41A01FF1DD2&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930332&amp;x-signature=c9UHVWv0n2VmGja1%2FDLd33weo%2B0%3D" alt="資質文件4">
                     </div>
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-80">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/f5c059252175469f8d9de138e6887551~tplv-a9rns2rl98-image.image?rcl=202508050040088610908081D1C8E5FB3E&amp;rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754930411&amp;x-signature=hH7srBckZDv5I%2Fs0cX6Fr1q1DMY%3D" alt="資質文件5">
                     </div>
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container cert-img-container">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-80">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/a07a1d43c0a346bda93f4f31d4039a46~tplv-a9rns2rl98-image.image?rcl=20250805004024C8D4A8107691CCD931FB&amp;rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754930428&amp;x-signature=AIsoHFQjQP6HnevcW%2FNH4t3U4jA%3D" alt="資質文件6">
                     </div>
                 </div>
@@ -315,25 +303,24 @@
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-12 text-primary" data-lang-key="productShowcase">產品展示</h2>
                 
-                <!-- 每行2张图片，保持原始比例 -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <!-- 6张产品图片 -->
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container product-img-container">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 6张产品图片 - 已优化为原始比例和视觉效果 -->
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-80">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/cf7e88de6fae4769a9d1ae267022be51~tplv-a9rns2rl98-image.image?rcl=20250805004102FECE8E8FDC4941E57122&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930463&amp;x-signature=oPxekTzeaPaExY7RC%2BNwd5XHB%2BU%3D" alt="東江泉產品1">
                     </div>
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container product-img-container">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/b9d24b63723e4bf4a0177e3e1ac94ac6~tplv-a9rns2rl98-image.image?rcl=20250805175612821D7B799A9E240D20B5&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754992575&amp;x-signature=8uACOVNYDHOQvGx4cH7FIJt%2F7gI%3D" alt="東江泉產品2">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-80">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/34eee24ba7c74283ac195243d4b2ffa0~tplv-a9rns2rl98-image.image?rcl=20250805004120BFB306D5AF582B3C5699&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930481&amp;x-signature=S0JHWv1QBudTpTdDTL7k3fTkOLU%3D" alt="東江泉產品2">
                     </div>
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container product-img-container">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-80">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/376bb3328298479c807e423c5602f41a~tplv-a9rns2rl98-image.image?rcl=2025080500413642655E635F0CF7D346B2&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930497&amp;x-signature=JgDxnO4zpcG5YbuH2z%2FSaPmiGXI%3D" alt="東江泉產品3">
                     </div>
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container product-img-container">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-80">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/193574c737ae4e528031e10b563b3174~tplv-a9rns2rl98-image.image?rcl=20250805004157BC81909A832C57D86EF8&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930518&amp;x-signature=t8NoT7oMj2jsaCEATYklu00fCc0%3D" alt="東江泉產品4">
                     </div>
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container product-img-container">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-80">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/f39f7718c4484c2fa50293b7e5ec1d51~tplv-a9rns2rl98-image.image?rcl=2025080500421204EF7AB63BCB20D5AC08&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930532&amp;x-signature=eG40GqCMkHAfh5ZUSYi3%2Ffr4jes%3D" alt="東江泉產品5">
                     </div>
-                    <div class="shadow-sm hover:shadow-md transition-custom img-container product-img-container">
+                    <div class="shadow-sm hover:shadow-md transition-custom img-container h-80">
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/5e26278026eb4021b5ed1369ad95efab~tplv-a9rns2rl98-image.image?rcl=202508050042226756EBF431709DD95584&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754930542&amp;x-signature=zdm8Q1OyYF04rvhOnfBAJSU9HmA%3D" alt="東江泉產品6">
                     </div>
                 </div>
@@ -345,34 +332,18 @@
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-12 text-primary" data-lang-key="groupBrands">集團控股旗下部分品牌</h2>
                 
-                <!-- 9张图片，每行3张，保持原始比例 -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container brand-img-container flex items-center justify-center">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/2acb4e591a4d421885ab248bea5ab6ac~tplv-a9rns2rl98-image.image?rcl=20250805175221B1090302BF6DF0B43F4C&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754992341&amp;x-signature=9tpFOKZtuaP2DlBwbqJPdu4sJEQ%3D" alt="旗下品牌1" class="max-h-full max-w-full">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container h-40 flex items-center justify-center">
+                        <img src="https://picsum.photos/id/119/300/200" alt="旗下品牌1" class="max-h-full max-w-full">
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container brand-img-container flex items-center justify-center">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/54748d5556f8486195bbe7bb87182d33~tplv-a9rns2rl98-image.image?rcl=202508051752345588FC99A54BBCB81733&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754992355&amp;x-signature=tI3n8gCSvFNQMudlHIJRSxbxBp0%3D" alt="旗下品牌2" class="max-h-full max-w-full">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container h-40 flex items-center justify-center">
+                        <img src="https://picsum.photos/id/120/300/200" alt="旗下品牌2" class="max-h-full max-w-full">
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container brand-img-container flex items-center justify-center">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/3ba5a3ce381d430ca6a901bbed5cc2d9~tplv-a9rns2rl98-image.image?rcl=20250805175247A3C0AB09E63CA50FF408&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754992367&amp;x-signature=V5bjrSvZ8%2BzC0uytD8UHdnW3IX0%3D" alt="旗下品牌3" class="max-h-full max-w-full">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container h-40 flex items-center justify-center">
+                        <img src="https://picsum.photos/id/121/300/200" alt="旗下品牌3" class="max-h-full max-w-full">
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container brand-img-container flex items-center justify-center">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/9fb37116087045bcb4c5ed00023cd5f8~tplv-a9rns2rl98-image.image?rcl=2025080517532670EA6A79A3BB9CC12F9E&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754992406&amp;x-signature=sTumMCdt86NCxg3HE9jyHK7B4Sc%3D" alt="旗下品牌4" class="max-h-full max-w-full">
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container brand-img-container flex items-center justify-center">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/398f2ccae8c3406287ac44872784ebd6~tplv-a9rns2rl98-image.image?rcl=20250805175344F4B2EA1259B12516F646&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754992424&amp;x-signature=5hNNCSQGrwDNW1fQDQ9CVmcRn4c%3D" alt="旗下品牌5" class="max-h-full max-w-full">
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container brand-img-container flex items-center justify-center">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/ec839ea6564041c9b16353a6894cd805~tplv-a9rns2rl98-image.image?rcl=20250805175420F6D528279445966B439B&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754992461&amp;x-signature=7Ywy8dqbQxzQbb5TSSCKTuqXa%2Bo%3D" alt="旗下品牌6" class="max-h-full max-w-full">
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container brand-img-container flex items-center justify-center">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/be765fb39b12418b89375e371b45f2b1~tplv-a9rns2rl98-image.image?rcl=20250805175444832FA887FCD8BBB77D30&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754992484&amp;x-signature=d%2BVnCOxpuK0ZGyfFjcVU3ueD8NM%3D" alt="旗下品牌7" class="max-h-full max-w-full">
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container brand-img-container flex items-center justify-center">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/d51b36feb1274a0586a8cd2e09c0b0aa~tplv-a9rns2rl98-image.image?rcl=20250805175507DB919032CC7A47C75196&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754992508&amp;x-signature=QGNb2Oj13%2BguA6Vn5f0HAX1y2Yc%3D" alt="旗下品牌8" class="max-h-full max-w-full">
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container brand-img-container flex items-center justify-center">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/da18c878016d44f48b7cff30dfc9daca~tplv-a9rns2rl98-image.image?rcl=2025080517553115E35CACACAA61348BDD&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754992531&amp;x-signature=MuzrjbattqXU7QZmUclhVH6%2FnqM%3D" alt="旗下品牌9" class="max-h-full max-w-full">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom img-container h-40 flex items-center justify-center">
+                        <img src="https://picsum.photos/id/122/300/200" alt="旗下品牌4" class="max-h-full max-w-full">
                     </div>
                 </div>
             </div>
@@ -606,7 +577,6 @@
                                         <a href="#" class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-dark transition-custom">
                                             <i class="fa fa-weixin"></i>
                                         </a>
-                                        
                                         <a href="#" class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-dark transition-custom">
                                             <i class="fa fa-weibo"></i>
                                         </a>
@@ -713,7 +683,7 @@
                     'danxiaCloud': '水源地週邊生態',
                     'stoneLake': '會昌丹霞雲海似仙境',
                     'stoneLakeDesc': '石壁坑水庫波光粼粼，藍天白雲與澄淨湖水交相輝映，構成一幅綠色生態山水畫卷。',
-                    'surroundingEco': '石壁坑水庫波光粼粼，藍天白雲與湖水交相輝映構成一幅綠色生態山水畫卷。',
+                    'surroundingEco': '石壁坑水庫波光粼粼，藍天白雲與澄淨湖水交相輝映，構成一幅綠色生態山水畫卷。',
                     'surroundingEcoDesc': '未受污染的自然環境，確保水源的純淨與天然。',
                     'relatedCert': '相關證明文件',
                     'qualificationDocs': '相關資質文件',
@@ -807,7 +777,7 @@
                     '精心打造': '2025精心打造',
                     '有故事的水': '一瓶有故事的水',
                     'dunhuaGroup': '敦华集团出品',
-                    'launchProduct': '东江泉·饮用天然泉水，该产品源自赣南东江源头和赣江源头的自然保护区交汇处，从深层花岗岩裂隙中抽取，含锶、偏硅酸的天然泉水，甘甜可口、绵柔顺滑。已经获得香港优质“正”印检测认证香港优质“正”印检测认证，是饮用解渴的佳品之选，是泡茶、 煲汤和煮饭的黄金搭档。',
+                    'launchProduct': '东江泉·饮用天然泉水，该产品源自赣南东江源头和赣江源头的自然保护区交汇处，从深层花岗岩裂隙中抽取，含锶、偏硅酸的天然泉水，甘甜可口、绵柔顺滑。已经获得香港优质“正”印检测认证，是饮用解渴的佳品之选，是泡茶、 煲汤和煮饭的黄金搭档。',
                     'pureSource': '纯净水源',
                     'pureSourceDesc': '来自地下280米花岗岩裂缝',
                     'natural': '天然健康',
@@ -818,7 +788,7 @@
                     'danxiaCloud': '水源地周边生态',
                     'stoneLake': '会昌丹霞云海似仙境',
                     'stoneLakeDesc': '石壁坑水库波光粼粼，蓝天白云与澄净湖水交相辉映，构成一幅绿色生态山水画卷。',
-                    'surroundingEco': '石壁坑水库波光粼粼，蓝天白云与湖水交相辉映构成一幅绿色生态山水画卷。',
+                    'surroundingEco': '石壁坑水库波光粼粼，蓝天白云与澄净湖水交相辉映，构成一幅绿色生态山水画卷。',
                     'surroundingEcoDesc': '未受污染的自然环境，确保水源的纯净与天然。',
                     'relatedCert': '相关证明文件',
                     'qualificationDocs': '相关资质文件',
@@ -923,7 +893,7 @@
                     'danxiaCloud': 'Ecosystem Around Water Source',
                     'stoneLake': 'Huichang Danxia Cloud Sea Like a Fairyland',
                     'stoneLakeDesc': 'Shibikeng Reservoir shimmers with clear water, where blue sky, white clouds and pure lake water reflect each other, forming a green ecological landscape painting.',
-                    'surroundingEco': 'Shibikeng Reservoir shimmers with clear water, where blue sky, white clouds and lake water reflect each other to form a green ecological landscape painting.',
+                    'surroundingEco': 'Shibikeng Reservoir shimmers with clear water, where blue sky, white clouds and pure lake water reflect each other, forming a green ecological landscape painting.',
                     'surroundingEcoDesc': 'Unpolluted natural environment ensures the purity and natural quality of the water source.',
                     'relatedCert': 'Related Certificates',
                     'qualificationDocs': 'Relevant Qualification Documents',
@@ -1117,5 +1087,7 @@
             }
         });
     </script>
+
+
 
 </body></html>
